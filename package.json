@@ -17,18 +17,22 @@
     "clsx": "^1.2.1",
     "next": "13.4.9",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-speech-recognition": "^3.10.0",
+    "regenerator-runtime": "^0.13.11"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "5.62.0",
-    "eslint-config-prettier": "^8.8.0",
-    "@typescript-eslint/parser": "5.42.0",
-    "prettier": "^3.0.0",
     "@types/node": "20.4.1",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
-    "typescript": "5.1.6",
+    "@types/react-speech-recognition": "^3.9.2",
+    "@typescript-eslint/eslint-plugin": "5.62.0",
+    "@typescript-eslint/parser": "5.42.0",
+    "@types/regenerator-runtime": "^0.13.1",
     "eslint": "8.44.0",
-    "eslint-config-next": "13.4.9"
+    "eslint-config-next": "13.4.9",
+    "eslint-config-prettier": "^8.8.0",
+    "prettier": "^3.0.0",
+    "typescript": "5.1.6"
   }
 }

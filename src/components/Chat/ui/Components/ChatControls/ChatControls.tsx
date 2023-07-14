@@ -13,6 +13,7 @@ const URL = process.env.NEXT_PUBLIC_CHAT_GPT_ENDPOINT_DEV;
 
 export const ChatControls = () => {
   const [message, setMessage] = useState('');
+  const [voiceMessage, setVoiceMessage] = useState('');
   const [isListening, setIsListening] = useState(false);
 
   const handleChangeMessage = (value: string) => {
@@ -20,6 +21,11 @@ export const ChatControls = () => {
 
     setMessage(value);
   };
+
+  const handleGetVoiceMessage = () => {
+    console.log('get voices');
+  };
+
   const handleSendToChatGPT = async () => {
     // // const res = await fetch(`${URL}/chat/completions`, {
     // //   method: 'POST',
@@ -45,12 +51,14 @@ export const ChatControls = () => {
       <div className={clsx(cls.controls_container, 'container')}>
         <ChatTextField value={message} setValue={handleChangeMessage} />
         {message ? (
-          <SendButton className={cls.control_button_send} />
+          <SendButton className={cls.control_button_send} onClick={handleSendToChatGPT} />
         ) : (
           <MicrophoneButton
             className={cls.control_button_send}
-            isOn={false}
-            onClick={handleSendToChatGPT}
+            isOn={isListening}
+            onClick={handleGetVoiceMessage}
+            setVoice={setVoiceMessage}
+            setIsOn={setIsListening}
           />
         )}
       </div>

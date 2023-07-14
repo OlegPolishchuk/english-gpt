@@ -1,15 +1,6 @@
 import React from 'react';
-
-import cls from './Chat.module.css';
-import { ChatControls } from './Components/ChatControls/ChatControls';
-import { MessagesField } from '@/components/Chat/ui/Components/ChatMessages/MessagesField';
+import { ChatClientModule } from '@/components/Chat/ui/Components/ChatClientModule/ChatClientModule';
 
 export const Chat = () => {
-  return (
-    <section className={cls.chat}>
-      <MessagesField />
-
-      <ChatControls />
-    </section>
-  );
+  return <ChatClientModule />;
 };
