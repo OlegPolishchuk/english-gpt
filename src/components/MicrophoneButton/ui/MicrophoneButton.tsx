@@ -16,6 +16,8 @@ interface Props extends ComponentPropsWithRef<'button'> {
   setIsOn: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+const isBrowser = () => typeof window !== 'undefined'; //The approach recommended by Next.js
+
 export const MicrophoneButton = ({
   isOn = true,
   className,
@@ -26,7 +28,7 @@ export const MicrophoneButton = ({
   const { transcript, listening, resetTranscript, browserSupportsSpeechRecognition } =
     useSpeechRecognition();
 
-  if (!window) {
+  if (!isBrowser()) {
     return;
   }
 
