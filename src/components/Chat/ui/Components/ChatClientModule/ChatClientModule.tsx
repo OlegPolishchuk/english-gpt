@@ -6,11 +6,17 @@ import { ChatControls } from '@/components/Chat/ui/Components/ChatControls/ChatC
 import cls from '@/components/Chat/ui/Chat.module.css';
 
 export const ChatClientModule = () => {
-  const [height, setHeight] = useState(window.innerHeight);
+  const [height, setHeight] = useState(0);
 
   const handleResize = () => {
     setHeight(window.innerHeight);
   };
+
+  useEffect(() => {
+    if (window) {
+      setHeight(window.innerHeight);
+    }
+  }, []);
 
   // Добавляем обработчик события изменения размера окна
   useEffect(() => {
