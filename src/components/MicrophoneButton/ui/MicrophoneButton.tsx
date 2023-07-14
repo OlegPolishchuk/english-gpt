@@ -1,6 +1,6 @@
 'use client';
 
-import React, { ComponentPropsWithRef } from 'react';
+import React, { ComponentPropsWithRef, useEffect, useState } from 'react';
 import 'regenerator-runtime/runtime';
 import { Button } from '@mantine/core';
 
@@ -16,8 +16,6 @@ interface Props extends ComponentPropsWithRef<'button'> {
   setIsOn: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const isBrowser = () => typeof window !== 'undefined'; //The approach recommended by Next.js
-
 export const MicrophoneButton = ({
   isOn = true,
   className,
@@ -25,11 +23,17 @@ export const MicrophoneButton = ({
   setVoice,
   ...restProps
 }: Props) => {
+  const [isClient, setIsClient] = useState(false);
+
   const { transcript, listening, resetTranscript, browserSupportsSpeechRecognition } =
     useSpeechRecognition();
 
-  if (!isBrowser()) {
-    return;
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
   }
 
   if (!browserSupportsSpeechRecognition) {
