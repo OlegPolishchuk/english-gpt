@@ -12,8 +12,8 @@ export const MessagesField = () => {
       <div className={clsx(cls.messagesFiled, 'container')}>
         <ChatMessage isUser={false} text={''} />
         <ChatMessage isUser={true} text={''} />
-        <ChatMessage isUser={false} text={''} />
-        <ChatMessage isUser={true} text={''} />
+        {/*<ChatMessage isUser={false} text={''} />*/}
+        {/*<ChatMessage isUser={true} text={''} />*/}
       </div>
     </ScrollArea>
   );

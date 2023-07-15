@@ -13,7 +13,7 @@ const URL = process.env.NEXT_PUBLIC_CHAT_GPT_ENDPOINT_DEV;
 
 export const ChatControls = () => {
   const [message, setMessage] = useState('');
-  const [voiceMessage, setVoiceMessage] = useState('');
+  // const [voiceMessage, setVoiceMessage] = useState('');
   const [isListening, setIsListening] = useState(false);
 
   const handleChangeMessage = (value: string) => {
@@ -22,8 +22,8 @@ export const ChatControls = () => {
     setMessage(value);
   };
 
-  const handleGetVoiceMessage = () => {
-    console.log('get voices');
+  const handleGetVoiceMessage = (message: string) => {
+    setMessage(message);
   };
 
   const handleSendToChatGPT = async () => {
@@ -50,17 +50,29 @@ export const ChatControls = () => {
     <div className={cls.controls}>
       <div className={clsx(cls.controls_container, 'container')}>
         <ChatTextField value={message} setValue={handleChangeMessage} />
-        {message ? (
-          <SendButton className={cls.control_button_send} onClick={handleSendToChatGPT} />
-        ) : (
+        {/*{message ? (*/}
+        {/*  <SendButton className={cls.control_button_send} onClick={handleSendToChatGPT} />*/}
+        {/*) : (*/}
+        {/*  <MicrophoneButton*/}
+        {/*    className={cls.control_button_send}*/}
+        {/*    isOn={isListening}*/}
+        {/*    // onClick={handleGetVoiceMessage}*/}
+        {/*    setVoice={setVoiceMessage}*/}
+        {/*    setIsOn={setIsListening}*/}
+        {/*  />*/}
+        {/*)}*/}
+
+        <div className={cls.controls_buttons}>
+          <SendButton className={cls.button_send} onClick={handleSendToChatGPT} />
+
           <MicrophoneButton
             className={cls.control_button_send}
             isOn={isListening}
-            onClick={handleGetVoiceMessage}
-            setVoice={setVoiceMessage}
+            // onClick={handleGetVoiceMessage}
+            setVoiceMessage={handleGetVoiceMessage}
             setIsOn={setIsListening}
           />
-        )}
+        </div>
       </div>
     </div>
   );

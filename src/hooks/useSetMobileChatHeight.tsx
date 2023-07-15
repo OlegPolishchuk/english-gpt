@@ -1,24 +1,27 @@
-import { useMediaQuery } from '@mantine/hooks';
 import { useEffect, useState } from 'react';
 
-export const useSetMobileChatHeight = () => {
-  const matches = useMediaQuery('(max-width: 768px)', true, {
-    getInitialValueInEffect: false,
-  });
+export const useSetMobileHeight = () => {
+  const [height, setHeight] = useState(0);
 
-  const [vh, setVh] = useState(0);
+  const handleResize = () => {
+    setHeight(window.innerHeight);
+  };
 
   useEffect(() => {
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-  }, [vh]);
+    if (window) {
+      setHeight(window.innerHeight);
+    }
+  }, []);
 
-  if (!window) {
-    return;
-  }
+  // Добавляем обработчик события изменения размера окна
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
 
-  if (matches) {
-    const vh = window.innerHeight * 0.01;
+    // Очищаем обработчик при размонтировании компонента
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
-    setVh(vh);
-  }
+  return height;
 };

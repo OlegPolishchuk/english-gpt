@@ -7,6 +7,9 @@
   --color-user: #6bbd6b;
   --color-bot: #45b7d7;
 
+  --color-button-send: #45b7d7;
+  --color-button-send-hover: #27849d;
+
   --bg-main: #f6f6f6;
   --bg-message: #090707;
   --bg-message-user: #fff;

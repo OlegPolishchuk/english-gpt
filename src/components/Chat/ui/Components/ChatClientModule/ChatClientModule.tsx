@@ -1,32 +1,14 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { MessagesField } from '@/components/Chat/ui/Components/ChatMessages/MessagesField';
-import { ChatControls } from '@/components/Chat/ui/Components/ChatControls/ChatControls';
+import React from 'react';
+import { MessagesField } from '../ChatMessages/MessagesField';
+import { ChatControls } from '../ChatControls/ChatControls';
 import cls from '@/components/Chat/ui/Chat.module.css';
+import { useSetMobileHeight } from '@/hooks';
 
 export const ChatClientModule = () => {
-  const [height, setHeight] = useState(0);
+  const height = useSetMobileHeight();
 
-  const handleResize = () => {
-    setHeight(window.innerHeight);
-  };
-
-  useEffect(() => {
-    if (window) {
-      setHeight(window.innerHeight);
-    }
-  }, []);
-
-  // Добавляем обработчик события изменения размера окна
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-
-    // Очищаем обработчик при размонтировании компонента
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
   return (
     <section className={cls.chat} style={{ height: `${height - 65}px` }}>
       <MessagesField />
