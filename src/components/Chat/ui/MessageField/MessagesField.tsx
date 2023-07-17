@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import clsx from 'clsx';
 import cls from './MessageField.module.css';
 import { ChatMessage } from '../ChatMessages/ChatMessage';
@@ -10,13 +10,31 @@ import { useChatStore } from '@/store/chat/chatStore';
 export const MessagesField = () => {
   const messages = useChatStore.use.messages();
 
+  const messagesField = useRef<HTMLDivElement>(null);
+  const lastMessageInList = useRef<HTMLDivElement>(null);
+
   console.log({ messages });
 
+  const scrollToBottom = () => {
+    lastMessageInList.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages.length]);
+
   return (
-    <ScrollArea className={cls.scrollArea}>
+    <ScrollArea className={cls.scrollArea} ref={messagesField}>
       <div className={clsx(cls.messagesFiled, 'container')}>
-        {messages.map(message => (
-          <ChatMessage message={message} key={message.id} />
+        {messages.map((message, index) => (
+          <ChatMessage
+            message={message}
+            key={message.id}
+            ref={index === messages.length - 1 ? lastMessageInList : null}
+          />
         ))}
       </div>
     </ScrollArea>

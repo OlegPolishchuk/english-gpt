@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useId, KeyboardEvent } from 'react';
+import React, { useState, useId, KeyboardEvent, useRef } from 'react';
 import cls from './ChatControls.module.css';
 import clsx from 'clsx';
 
@@ -13,9 +13,9 @@ import { prepareNewUserMessage } from '@/modules/Chat/utils/prepareNewUserMessag
 
 export const ChatControls = () => {
   const [message, setMessage] = useState('');
-  const id = useId();
-
   const [isListening, setIsListening] = useState(false);
+
+  const id = useId();
 
   const addMessageToList = useChatStore.use.push();
 
