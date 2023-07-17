@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useId } from 'react';
+import React, { useState, useId, KeyboardEvent } from 'react';
 import cls from './ChatControls.module.css';
 import clsx from 'clsx';
 
@@ -11,15 +11,10 @@ import { useChatStore } from '@/store/chat/chatStore';
 import { getAnswer } from '@/modules/Chat/api/api';
 import { prepareNewUserMessage } from '@/modules/Chat/utils/prepareNewUserMessage';
 
-const TOKEN = process.env.NEXT_PUBLIC_CHAT_GPT_API_KEY_DEV;
-const URL = process.env.NEXT_PUBLIC_CHAT_GPT_ENDPOINT_DEV;
-
-// 'https://api.openai.com/v1/chat/completions'
-
 export const ChatControls = () => {
   const [message, setMessage] = useState('');
   const id = useId();
-  // const [voiceMessage, setVoiceMessage] = useState('');
+
   const [isListening, setIsListening] = useState(false);
 
   const addMessageToList = useChatStore.use.push();
@@ -35,11 +30,19 @@ export const ChatControls = () => {
   };
 
   const handleSendToChatGPT = async () => {
-    addMessageToList(prepareNewUserMessage(message, id));
+    const newMessageId = `${id}${Date.now()}`;
+    addMessageToList(prepareNewUserMessage(message, newMessageId));
+    setMessage('');
 
     const answer = await getAnswer(message);
 
     addMessageToList(answer);
+  };
+
+  const handleKeyUp = (event: KeyboardEvent<HTMLTextAreaElement>) => {
+    if (event.key === 'Enter') {
+      handleSendToChatGPT();
+    }
   };
 
   return (
@@ -49,18 +52,8 @@ export const ChatControls = () => {
           value={message}
           setValue={handleChangeMessage}
           className={cls.text_field}
+          onKeyPress={handleKeyUp}
         />
-        {/*{message ? (*/}
-        {/*  <SendButton className={cls.control_button_send} onClick={handleSendToChatGPT} />*/}
-        {/*) : (*/}
-        {/*  <MicrophoneButton*/}
-        {/*    className={cls.control_button_send}*/}
-        {/*    isOn={isListening}*/}
-        {/*    // onClick={handleGetVoiceMessage}*/}
-        {/*    setVoice={setVoiceMessage}*/}
-        {/*    setIsOn={setIsListening}*/}
-        {/*  />*/}
-        {/*)}*/}
 
         <div className={cls.controls_buttons}>
           <SendButton className={cls.button_send} onClick={handleSendToChatGPT} />
@@ -68,7 +61,6 @@ export const ChatControls = () => {
           <MicrophoneButton
             className={cls.control_button_send}
             isOn={isListening}
-            // onClick={handleGetVoiceMessage}
             setVoiceMessage={handleGetVoiceMessage}
             setIsOn={setIsListening}
           />

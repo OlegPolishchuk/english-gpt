@@ -51,7 +51,7 @@
 }
 
 .userName {
-  font-size: 16px;
+  font-size: 14px;
   color: var(--color-bot);
 
   text-decoration: underline;
