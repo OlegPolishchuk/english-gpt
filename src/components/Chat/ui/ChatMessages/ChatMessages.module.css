@@ -1,6 +1,6 @@
 .message {
   background: var(--bg-message);
-  color: #fff;
+  color: var(--color-message-text);
 
   border-radius: 15px;
   box-shadow: var(--shadow-message);
@@ -9,13 +9,14 @@
   margin-bottom: 30px;
 
   max-width: 85%;
+  min-width: 150px;
 }
 
-.message.alt {
+.message.isUser {
   margin-left: auto;
 
-  background-color: #fff;
-  color: #171717;
+  background-color: var(--color-theme);
+  color: var(--color-message-text-user);
 }
 
 .message:last-child {
@@ -42,16 +43,18 @@
 }
 
 .icon_sound svg {
-  fill: var(--bg-message-user);
+  fill: var(--color-theme);
 }
 
-.icon_sound.alt svg {
-  fill: var(--bg-message);
+.icon_sound.isUser svg {
+  fill: var(--color-message-text-user);
 }
 
 .userName {
   font-size: 16px;
   color: var(--color-bot);
+
+  text-decoration: underline;
 }
 
 .user {
@@ -66,7 +69,7 @@
   height: 0;
 }
 
-.bubbleArrow.alt {
+.bubbleArrow.isUser {
   right: -2px;
   bottom: 40px;
   left: auto;
@@ -86,4 +89,16 @@
 .bubbleArrow.alt:after {
   border-top: 9px solid var(--bg-message-user);
   transform: rotate(45deg) scaleY(-1);
+}
+
+.date {
+  margin-top: 10px;
+  color: var(--color-message-date);
+  text-align: right;
+
+  font-size: 14px;
+}
+
+.date.isUser {
+  color: var(--color-message-date-user);
 }

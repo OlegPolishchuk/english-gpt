@@ -1,18 +1,27 @@
 :root {
+  --color-theme: #6bbd6b;
 
   --color-border: #eaeaea;
-
   --color-border-mic-on: #6bbd6b;
 
-  --color-user: #6bbd6b;
-  --color-bot: #45b7d7;
+  --color-user: #fff;
+  --color-bot: #6bbd6b;
 
-  --color-button-send: #45b7d7;
+  --color-message-text-user: #fff;
+  --color-message-text: #333;
+
+  --color-message-date: #afafaf;
+  --color-message-date-user: #fcfbfb;
+
+  /*--color-button-send: #45b7d7;*/
+  --color-button-send: var(--color-theme);
   --color-button-send-hover: #27849d;
 
   --bg-main: #f6f6f6;
-  --bg-message: #090707;
-  --bg-message-user: #fff;
+  --bg-message: #fff;
+  --bg-message-user: var(--color-theme);
+
+  --bg-textarea: #f5f5f5;
 
   --border-main: 1px solid var(--color-border);
 

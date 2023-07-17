@@ -19,7 +19,7 @@ export const MessageHeader = ({ isUser }: Props) => {
         {isUser ? 'User' : 'ChatGPT'}
       </h3>
 
-      <div className={clsx(cls.icon_sound, isUser && cls.alt)}>
+      <div className={clsx(cls.icon_sound, isUser && cls.isUser)}>
         <DynamicButton onClick={handleClick} />
       </div>
     </div>

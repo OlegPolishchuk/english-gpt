@@ -2,7 +2,7 @@
   padding: 10px 0;
 
   border-top: 1px solid var(--color-border);
-  background-color: var(--bg-message-user);
+  background-color: var(--bg-textarea);
 
   margin-top: auto;
 }

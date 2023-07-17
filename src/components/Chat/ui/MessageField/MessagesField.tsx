@@ -5,15 +5,19 @@ import clsx from 'clsx';
 import cls from './MessageField.module.css';
 import { ChatMessage } from '../ChatMessages/ChatMessage';
 import { ScrollArea } from '@mantine/core';
+import { useChatStore } from '@/store/chat/chatStore';
 
 export const MessagesField = () => {
+  const messages = useChatStore.use.messages();
+
+  console.log({ messages });
+
   return (
     <ScrollArea className={cls.scrollArea}>
       <div className={clsx(cls.messagesFiled, 'container')}>
-        <ChatMessage isUser={false} text={''} />
-        <ChatMessage isUser={true} text={''} />
-        {/*<ChatMessage isUser={false} text={''} />*/}
-        {/*<ChatMessage isUser={true} text={''} />*/}
+        {messages.map(message => (
+          <ChatMessage message={message} key={message.id} />
+        ))}
       </div>
     </ScrollArea>
   );

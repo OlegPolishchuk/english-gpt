@@ -1,12 +1,15 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useId } from 'react';
 import cls from './ChatControls.module.css';
 import clsx from 'clsx';
 
 import { TextArea } from '@/shared/ui';
 import { SendButton } from '@/components/SendButton';
 import { MicrophoneButton } from '@/components/MicrophoneButton';
+import { useChatStore } from '@/store/chat/chatStore';
+import { getAnswer } from '@/modules/Chat/api/api';
+import { prepareNewUserMessage } from '@/modules/Chat/utils/prepareNewUserMessage';
 
 const TOKEN = process.env.NEXT_PUBLIC_CHAT_GPT_API_KEY_DEV;
 const URL = process.env.NEXT_PUBLIC_CHAT_GPT_ENDPOINT_DEV;
@@ -15,8 +18,11 @@ const URL = process.env.NEXT_PUBLIC_CHAT_GPT_ENDPOINT_DEV;
 
 export const ChatControls = () => {
   const [message, setMessage] = useState('');
+  const id = useId();
   // const [voiceMessage, setVoiceMessage] = useState('');
   const [isListening, setIsListening] = useState(false);
+
+  const addMessageToList = useChatStore.use.push();
 
   const handleChangeMessage = (value: string) => {
     setIsListening(true);
@@ -29,23 +35,11 @@ export const ChatControls = () => {
   };
 
   const handleSendToChatGPT = async () => {
-    // // const res = await fetch(`${URL}/chat/completions`, {
-    // //   method: 'POST',
-    // //   headers: {
-    // //     Authorization: `Bearer ${TOKEN}`,
-    // //     'Content-Type': 'application/json',
-    // //   },
-    // //   body: JSON.stringify({
-    // //     model: 'gpt-3.5-turbo',
-    // //     messages: [{ role: 'user', content: 'HELLO' }],
-    // //   }),
-    // // });
-    // //
-    // // const data = await res.json();
-    //
-    // console.log(data);
+    addMessageToList(prepareNewUserMessage(message, id));
 
-    console.log('click');
+    const answer = await getAnswer(message);
+
+    addMessageToList(answer);
   };
 
   return (
