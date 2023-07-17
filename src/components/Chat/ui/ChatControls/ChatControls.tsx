@@ -1,10 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
-import cls from '@/components/Chat/ui/Chat.module.css';
+import cls from './ChatControls.module.css';
 import clsx from 'clsx';
-import { MicrophoneButton, SendButton } from '@/components';
-import { ChatTextField } from './ChatTextField';
+
+import { TextArea } from '@/shared/ui';
+import { SendButton } from '@/components/SendButton';
+import { MicrophoneButton } from '@/components/MicrophoneButton';
 
 const TOKEN = process.env.NEXT_PUBLIC_CHAT_GPT_API_KEY_DEV;
 const URL = process.env.NEXT_PUBLIC_CHAT_GPT_ENDPOINT_DEV;
@@ -49,7 +51,11 @@ export const ChatControls = () => {
   return (
     <div className={cls.controls}>
       <div className={clsx(cls.controls_container, 'container')}>
-        <ChatTextField value={message} setValue={handleChangeMessage} />
+        <TextArea
+          value={message}
+          setValue={handleChangeMessage}
+          className={cls.text_field}
+        />
         {/*{message ? (*/}
         {/*  <SendButton className={cls.control_button_send} onClick={handleSendToChatGPT} />*/}
         {/*) : (*/}

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import cls from '../../Chat.module.css';
+import cls from './ChatMessages.module.css';
 import clsx from 'clsx';
-import { MessageHeader } from './MessageHeader';
-import { MessageBody } from './MessageBody';
+import { MessageHeader } from './Components/MessageHeader';
+import { MessageBody } from './Components/MessageBody';
 
 interface Props {
   isUser: boolean;

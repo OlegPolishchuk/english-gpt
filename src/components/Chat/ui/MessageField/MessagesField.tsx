@@ -2,8 +2,8 @@
 
 import React from 'react';
 import clsx from 'clsx';
-import cls from '@/components/Chat/ui/Chat.module.css';
-import { ChatMessage } from '@/components/Chat/ui/Components/ChatMessages/ChatMessage';
+import cls from './MessageField.module.css';
+import { ChatMessage } from '../ChatMessages/ChatMessage';
 import { ScrollArea } from '@mantine/core';
 
 export const MessagesField = () => {

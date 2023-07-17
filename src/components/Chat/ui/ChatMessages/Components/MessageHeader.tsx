@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import cls from '@/components/Chat/ui/Chat.module.css';
+import cls from '../ChatMessages.module.css';
 import clsx from 'clsx';
-import { DynamicButton } from '@/components';
+import { DynamicButton } from '../../../../DynamicButton';
 
 interface Props {
   isUser: boolean;

@@ -3,19 +3,18 @@
 import React from 'react';
 import { Textarea } from '@mantine/core';
 
-import cls from '../../Chat.module.css';
-
 interface Props {
   value: string;
   setValue: (value: string) => void;
+  className?: string;
 }
 
-export const ChatTextField = ({ setValue, value }: Props) => {
+export const TextArea = ({ setValue, value, className }: Props) => {
   return (
     <Textarea
       value={value}
       onChange={e => setValue(e.target.value)}
-      className={cls.text_field}
+      className={className}
       placeholder="Write or tell your question"
       autosize
       radius={'lg'}

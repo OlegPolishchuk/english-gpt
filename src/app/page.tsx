@@ -1,5 +1,5 @@
 import styles from 'src/app/styles/page.module.css';
-import { Chat } from '@/components';
+import { Chat } from '@/modules';
 
 export default function Home() {
   return (
