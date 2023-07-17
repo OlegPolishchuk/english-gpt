@@ -12,11 +12,20 @@ import { useMicrophone } from '@/modules/Chat/hooks';
 interface Props {
   setVoiceMessage: (message: string) => void;
   className?: string;
+  isOn: boolean;
+  handleOn: () => Promise<void>;
+  handleOff: () => void;
+  isLoading?: boolean;
 }
 
-export const MicrophoneButton = ({ className, setVoiceMessage }: Props) => {
-  const { isOn, handleOn, handleOff, isLoading } = useMicrophone(setVoiceMessage);
-
+export const MicrophoneButton = ({
+  className,
+  setVoiceMessage,
+  isOn,
+  isLoading,
+  handleOn,
+  handleOff,
+}: Props) => {
   return (
     <div className={cls.button_microphone}>
       {isOn && (

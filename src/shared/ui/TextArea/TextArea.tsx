@@ -12,7 +12,9 @@ interface Props {
 
 export const TextArea = ({ setValue, onKeyPress, value, className }: Props) => {
   const handleKeyDown = (event: KeyboardEvent) => {
-    event.preventDefault();
+    if (event.key === 'Enter') {
+      event.preventDefault();
+    }
   };
 
   return (
@@ -22,7 +24,7 @@ export const TextArea = ({ setValue, onKeyPress, value, className }: Props) => {
       onKeyUp={onKeyPress}
       onKeyDown={handleKeyDown}
       className={className}
-      placeholder="Write or tell your question"
+      placeholder="Write or say your question"
       autosize
       radius={'lg'}
       size={'md'}

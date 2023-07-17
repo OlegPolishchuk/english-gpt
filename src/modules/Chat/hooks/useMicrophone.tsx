@@ -11,8 +11,7 @@ export const useMicrophone = (setMessage: (message: string) => void) => {
 
   const timerId = useRef<number | null>(null);
 
-  const { transcript, listening, resetTranscript, browserSupportsSpeechRecognition } =
-    useSpeechRecognition();
+  const { transcript, resetTranscript } = useSpeechRecognition();
 
   const startListening = async () => {
     const options = {
@@ -43,6 +42,8 @@ export const useMicrophone = (setMessage: (message: string) => void) => {
     setIsOn(false);
 
     await stopListening();
+
+    console.log(transcript);
   };
 
   useEffect(() => {
@@ -50,6 +51,7 @@ export const useMicrophone = (setMessage: (message: string) => void) => {
       setMessage(transcript);
     }
   }, [transcript]);
+
   //
   // if (!isClient) {
   //   return null;
@@ -64,5 +66,6 @@ export const useMicrophone = (setMessage: (message: string) => void) => {
     isLoading,
     handleOff,
     handleOn,
+    resetTranscript,
   };
 };

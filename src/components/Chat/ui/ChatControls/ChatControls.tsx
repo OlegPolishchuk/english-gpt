@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import { TextArea } from '@/shared/ui';
 import { SendButton } from '@/components/SendButton';
 import { MicrophoneButton } from '@/components/MicrophoneButton';
-import { useChatControls } from '@/modules/Chat/hooks';
+import { useChatControls, useMicrophone } from '@/modules/Chat/hooks';
 
 export const ChatControls = () => {
   const {
@@ -17,6 +17,15 @@ export const ChatControls = () => {
     handleSendToChatGPT,
     handleKeyUp,
   } = useChatControls();
+
+  const { isOn, handleOn, handleOff, isLoading, resetTranscript } =
+    useMicrophone(handleGetVoiceMessage);
+
+  const handleSendMessage = async () => {
+    await handleSendToChatGPT();
+
+    resetTranscript();
+  };
 
   return (
     <div className={cls.controls}>
@@ -31,12 +40,16 @@ export const ChatControls = () => {
         <div className={cls.controls_buttons}>
           <SendButton
             className={cls.button_send}
-            onClick={handleSendToChatGPT}
+            onClick={handleSendMessage}
             disabled={message.trim() === ''}
           />
 
           <MicrophoneButton
             className={cls.control_button_send}
+            isOn={isOn}
+            handleOn={handleOn}
+            handleOff={handleOff}
+            isLoading={isLoading}
             setVoiceMessage={handleGetVoiceMessage}
           />
         </div>

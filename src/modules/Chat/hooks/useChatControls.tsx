@@ -13,6 +13,7 @@ export const useChatControls = () => {
   };
 
   const handleGetVoiceMessage = (message: string) => {
+    console.log(message);
     setMessage(message);
   };
 
