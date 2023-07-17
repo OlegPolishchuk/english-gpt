@@ -1,5 +1,5 @@
 .circle_wrap {
-  background: conic-gradient(transparent, var(--color-user));
+  background: conic-gradient(transparent, var(--color-warning));
   height: 53px;
   width: 53px;
   border-radius: 50%;

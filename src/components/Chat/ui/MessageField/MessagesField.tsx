@@ -13,8 +13,6 @@ export const MessagesField = () => {
   const messagesField = useRef<HTMLDivElement>(null);
   const lastMessageInList = useRef<HTMLDivElement>(null);
 
-  console.log({ messages });
-
   const scrollToBottom = () => {
     lastMessageInList.current?.scrollIntoView({
       behavior: 'smooth',

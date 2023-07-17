@@ -11,11 +11,16 @@ interface Props {
 }
 
 export const TextArea = ({ setValue, onKeyPress, value, className }: Props) => {
+  const handleKeyDown = (event: KeyboardEvent) => {
+    event.preventDefault();
+  };
+
   return (
     <Textarea
       value={value}
       onChange={e => setValue(e.target.value)}
       onKeyUp={onKeyPress}
+      onKeyDown={handleKeyDown}
       className={className}
       placeholder="Write or tell your question"
       autosize

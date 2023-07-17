@@ -12,3 +12,9 @@
 .button:hover svg {
   fill: var(--color-button-send-hover);
 }
+
+.button:disabled {
+  background-color: transparent;
+
+  opacity: .6;
+}
