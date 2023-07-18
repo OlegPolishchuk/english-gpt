@@ -6,8 +6,8 @@ import clsx from 'clsx';
 
 import { TextArea } from '@/shared/ui';
 import { SendButton } from '@/components/SendButton';
-import { MicrophoneButton } from '@/components/MicrophoneButton';
 import { useChatControls, useMicrophone } from '@/modules/Chat/hooks';
+import { MicrophoneButtonWithTooltip } from '@/components/MicrophoneButtonWithTooltip';
 
 export const ChatControls = () => {
   const {
@@ -44,13 +44,13 @@ export const ChatControls = () => {
             disabled={message.trim() === ''}
           />
 
-          <MicrophoneButton
+          <MicrophoneButtonWithTooltip
             className={cls.control_button_send}
+            setVoiceMessage={handleGetVoiceMessage}
             isOn={isOn}
             handleOn={handleOn}
             handleOff={handleOff}
             isLoading={isLoading}
-            setVoiceMessage={handleGetVoiceMessage}
           />
         </div>
       </div>
