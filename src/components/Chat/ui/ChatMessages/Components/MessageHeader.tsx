@@ -4,13 +4,16 @@ import React from 'react';
 import cls from '../ChatMessages.module.css';
 import clsx from 'clsx';
 import { DynamicButton } from '../../../../DynamicButton';
+import { useSpeechFromText } from '@/modules/Chat/hooks';
 
 interface Props {
   isUser: boolean;
+  message: string;
 }
-export const MessageHeader = ({ isUser }: Props) => {
+export const MessageHeader = ({ isUser, message }: Props) => {
+  const { speak } = useSpeechFromText();
   const handleClick = () => {
-    console.log('click');
+    speak(message);
   };
 
   return (

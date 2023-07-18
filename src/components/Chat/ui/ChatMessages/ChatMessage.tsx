@@ -12,14 +12,14 @@ interface Props {
 }
 
 export const ChatMessage = forwardRef<HTMLDivElement, Props>(({ message }, ref) => {
-  const { isUser, text, created, id } = message;
+  const { isUser, text, created } = message;
 
   const formattedDate = transformDateNumberToString(created);
 
   return (
     <div className={clsx(cls.message, isUser && cls.isUser)} ref={ref}>
       <div className={cls.text}>
-        <MessageHeader isUser={isUser} />
+        <MessageHeader isUser={isUser} message={text} />
 
         <MessageBody message={text} />
 
