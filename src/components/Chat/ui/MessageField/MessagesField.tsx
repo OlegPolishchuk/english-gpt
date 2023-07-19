@@ -1,23 +1,29 @@
 'use client';
 
-import React, { useRef } from 'react';
-import clsx from 'clsx';
-import cls from './MessageField.module.css';
-import { ChatMessage } from '../ChatMessages/ChatMessage';
+import React, { useEffect, useRef, useState } from 'react';
+
 import { ScrollArea } from '@mantine/core';
-import { useChatStore } from '@/store/chat/chatStore';
+import clsx from 'clsx';
+
+import { ChatMessage } from '../ChatMessages/ChatMessage';
+
+import cls from './MessageField.module.css';
+
 import { useScrollMessagesToBottom } from '@/modules/Chat/hooks';
+import { useChatStore } from '@/store/chat/chatStore';
 
 export const MessagesField = () => {
   const messages = useChatStore.use.messages();
 
   const lastMessageInListRef = useRef<HTMLDivElement>(null);
 
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
+
   useScrollMessagesToBottom(lastMessageInListRef, messages.length);
 
   return (
-    <ScrollArea className={cls.scrollArea}>
-      <div className={clsx(cls.messagesFiled, 'container')}>
+    <ScrollArea className={cls.scrollArea} viewportRef={scrollAreaRef}>
+      <div className={clsx(cls.messagesFiled, 'container')} ref={scrollAreaRef}>
         {messages.map((message, index) => (
           <ChatMessage
             message={message}

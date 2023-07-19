@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Popover, Text } from '@mantine/core';
-import { MicrophoneButton } from '@/components/MicrophoneButton';
-import cls from '@/components/Chat/ui/ChatControls/ChatControls.module.css';
+import { MicrophoneButton } from '@/components/Buttons/MicrophoneButton';
 
 interface Props {
   setVoiceMessage: (message: string) => void;

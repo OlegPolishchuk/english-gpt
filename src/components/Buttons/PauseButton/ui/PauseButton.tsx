@@ -1,10 +1,12 @@
 import React, { ComponentPropsWithRef } from 'react';
-import { ClearButton } from '@/components/Buttons';
-import { PauseIcon } from '@/shared/ui';
+
+import clsx from 'clsx';
 
 import cls from './PauseButton.module.css';
-import clsx from 'clsx';
+
+import { ClearButton } from '@/components/Buttons';
 import { Tooltip } from '@/components/Tooltip';
+import { PauseIcon } from '@/shared/ui';
 
 export const PauseButton = (props: ComponentPropsWithRef<'button'>) => {
   return (

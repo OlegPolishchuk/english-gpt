@@ -1,9 +1,11 @@
 import React, { forwardRef } from 'react';
 
-import cls from './ChatMessages.module.css';
 import clsx from 'clsx';
-import { MessageHeader } from './Components/MessageHeader';
+
+import cls from './ChatMessages.module.css';
 import { MessageBody } from './Components/MessageBody';
+import { MessageHeader } from './Components/MessageHeader';
+
 import { Message } from '@/models';
 import { transformDateNumberToString } from '@/shared/utils';
 

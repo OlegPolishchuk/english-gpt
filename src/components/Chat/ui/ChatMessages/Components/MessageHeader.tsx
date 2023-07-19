@@ -1,8 +1,11 @@
 'use client';
 
 import React from 'react';
-import cls from '../ChatMessages.module.css';
+
 import clsx from 'clsx';
+
+import cls from '../ChatMessages.module.css';
+
 import { MessageAudioPlayer } from '@/components/MessageAudioPlayer';
 
 interface Props {

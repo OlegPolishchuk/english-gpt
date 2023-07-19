@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+
 import { Message } from '@/models';
 import { createSelectors } from '@/store/utils/createSelectors';
 
@@ -13,6 +14,34 @@ const startMessage: Message = {
   created: 123456,
   isUser: false,
 };
+
+// const messages = [
+//   startMessage,
+//   {
+//     id: '1',
+//     text: 'Hello! I am your companion for the near future!',
+//     created: 123456,
+//     isUser: false,
+//   },
+//   {
+//     id: '2',
+//     text: 'Hello! I am your companion for the near future!',
+//     created: 123456,
+//     isUser: false,
+//   },
+//   {
+//     id: '3',
+//     text: 'Hello! I am your companion for the near future!',
+//     created: 123456,
+//     isUser: false,
+//   },
+//   {
+//     id: '4',
+//     text: 'Hello! I am your companion for the near future!',
+//     created: 123456,
+//     isUser: false,
+//   },
+// ];
 
 const useChatStoreBase = create<State>()(set => ({
   messages: [startMessage],

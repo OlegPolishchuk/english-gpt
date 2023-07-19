@@ -1,26 +1,33 @@
 import React from 'react';
 
 import cls from './MessageAudioPlayer.module.css';
-import { useSpeechFromText } from '@/modules/Chat/hooks';
-import { DynamicButton } from '@/components/Buttons/DynamicButton';
+
 import { PauseButton, PlayButton, StopButton } from '@/components/Buttons';
+import { DynamicButton } from '@/components/Buttons/DynamicButton';
+import { useSpeechFromText } from '@/modules/Chat/hooks';
 
 interface Props {
   message: string;
 }
 
 export const MessageAudioPlayer = ({ message }: Props) => {
-  const { startSpeaking, isSpeaking, pauseSpeaking, stopSpeaking } = useSpeechFromText();
+  const { startSpeaking, isSpeaking, pauseSpeaking, stopSpeaking, isFinished } =
+    useSpeechFromText();
 
+  console.log({ isSpeaking });
   return (
     <div className={cls.player}>
-      <DynamicButton onClick={() => startSpeaking(message)} />
+      {isSpeaking && !isFinished ? (
+        <>
+          <StopButton />
 
-      <StopButton />
+          <PlayButton />
 
-      <PlayButton />
-
-      <PauseButton />
+          <PauseButton />
+        </>
+      ) : (
+        <DynamicButton onClick={() => startSpeaking(message)} />
+      )}
     </div>
   );
 };

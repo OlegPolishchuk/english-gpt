@@ -4,7 +4,7 @@
   border-top: 1px solid var(--color-border);
   background-color: var(--bg-textarea);
 
-  margin-top: auto;
+  /*margin-top: auto;*/
 }
 
 .controls_container {

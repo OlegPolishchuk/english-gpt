@@ -1,19 +1,6 @@
 .chat {
   display: flex;
   flex-direction: column;
-
-  height: calc(100vh - 65px);
 }
-
-.scrollArea {
-  width: 100%;
-
-  flex-grow: 1;
-  background-color: #F8F9FA;
-
-  box-shadow: var(--shadow-main);
-}
-
-
 
 

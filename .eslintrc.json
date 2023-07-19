@@ -5,6 +5,7 @@
   },
   "extends": [
     "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
     "next",
     "next/core-web-vitals",
     "prettier"
@@ -17,8 +18,35 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "import"],
   "rules": {
-    "react/display-name": 0
+    "react/display-name": 0,
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "pathGroupsExcludedImportTypes": [
+          "react"
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "groups": [
+          "builtin",
+          "external",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ]
+      }
+    ]
   }
 }

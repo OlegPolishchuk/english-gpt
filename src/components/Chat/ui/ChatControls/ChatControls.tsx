@@ -1,13 +1,15 @@
 'use client';
 
 import React from 'react';
-import cls from './ChatControls.module.css';
+
 import clsx from 'clsx';
 
-import { TextArea } from '@/shared/ui';
-import { SendButton } from '@/components/SendButton';
+import cls from './ChatControls.module.css';
+
+import { MicrophoneButtonWithTooltip } from '@/components/Buttons/MicrophoneButtonWithTooltip';
+import { SendButton } from '@/components/Buttons/SendButton';
 import { useChatControls, useMicrophone } from '@/modules/Chat/hooks';
-import { MicrophoneButtonWithTooltip } from '@/components/MicrophoneButtonWithTooltip';
+import { TextArea } from '@/shared/ui';
 
 export const ChatControls = () => {
   const {

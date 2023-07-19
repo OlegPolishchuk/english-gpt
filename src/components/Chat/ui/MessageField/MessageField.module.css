@@ -1,9 +1,20 @@
+.scrollArea {
+  width: 100%;
+
+  flex-grow: 1;
+  background-color: #F8F9FA;
+
+  box-shadow: var(--shadow-main);
+
+}
+
 .messagesFiled {
-  min-height: 300px;
+  height: 100%;
   padding: 30px 15px;
 
-  display: flex;
-  flex-direction: column;
+  /*display: flex;*/
+  /*flex-direction: column;*/
 
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
+

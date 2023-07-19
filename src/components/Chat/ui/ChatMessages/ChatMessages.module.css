@@ -35,8 +35,6 @@
   margin-bottom: 10px;
 }
 
-
-
 .icon_sound svg {
   fill: var(--color-theme);
 }
@@ -81,7 +79,7 @@
   transform: rotate(145deg);
 }
 
-.bubbleArrow.alt:after {
+.bubbleArrow.isUser:after {
   border-top: 9px solid var(--bg-message-user);
   transform: rotate(45deg) scaleY(-1);
 }
