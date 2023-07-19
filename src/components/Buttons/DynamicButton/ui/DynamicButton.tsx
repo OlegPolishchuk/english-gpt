@@ -1,11 +1,13 @@
 'use client';
 
 import React from 'react';
-import { Button } from '@mantine/core';
-import { SoundIcon } from '@/shared/ui';
 
-import cls from 'src/components/Buttons/DynamicButton/ui/DynamicButton.module.css';
+import { Button } from '@mantine/core';
+
+import cls from './DynamicButton.module.css';
+
 import { Tooltip } from '@/components/Tooltip';
+import { SoundIcon } from '@/shared/ui';
 
 interface Props {
   onClick: () => void;

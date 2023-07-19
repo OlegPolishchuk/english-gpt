@@ -1,11 +1,13 @@
 'use client';
 
 import React, { ComponentPropsWithRef } from 'react';
+
 import { Button } from '@mantine/core';
-import { SendIcon } from '@/shared/ui';
+import clsx from 'clsx';
 
 import cls from './SensButton.module.css';
-import clsx from 'clsx';
+
+import { SendIcon } from '@/shared/ui';
 
 export const SendButton = ({
   className,

@@ -1,6 +1,8 @@
 import React, { ComponentPropsWithRef, forwardRef } from 'react';
-import cls from './ClearButton.module.css';
+
 import clsx from 'clsx';
+
+import cls from './ClearButton.module.css';
 
 export const ClearButton = forwardRef<HTMLButtonElement, ComponentPropsWithRef<'button'>>(
   ({ children, className, ...restProps }, ref) => {

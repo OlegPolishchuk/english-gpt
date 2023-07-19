@@ -1,8 +1,10 @@
 'use client';
 
 import React from 'react';
-import cls from '@/components/Header/ui/Header.module.css';
+
 import { Button } from '@mantine/core';
+
+import cls from '@/components/Header/ui/Header.module.css';
 
 export const Controls = () => {
   return (

@@ -1,7 +1,9 @@
 import React from 'react';
 
-import cls from './Header.module.css';
 import clsx from 'clsx';
+
+import cls from './Header.module.css';
+
 import { Controls } from '@/components/Header/ui/Components/Controls';
 
 export const Header = () => {

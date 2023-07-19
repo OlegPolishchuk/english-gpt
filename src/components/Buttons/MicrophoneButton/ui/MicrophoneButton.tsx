@@ -3,10 +3,12 @@
 import React, { forwardRef } from 'react';
 import 'regenerator-runtime/runtime';
 
-import { MicIcon, MicOffIcon } from '@/shared/ui';
 import clsx from 'clsx';
-import cls from 'src/components/Buttons/MicrophoneButton/ui/MicrophoneButton.module.css';
-import { MicrophoneProgress } from '@/components/Buttons/MicrophoneButton/ui/MicrophoneProgress';
+
+import cls from './MicrophoneButton.module.css';
+import { MicrophoneProgress } from './MicrophoneProgress';
+
+import { MicIcon, MicOffIcon } from '@/shared/ui';
 
 interface Props {
   setVoiceMessage: (message: string) => void;

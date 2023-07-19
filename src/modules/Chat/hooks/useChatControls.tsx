@@ -1,7 +1,8 @@
 import { KeyboardEvent, useState } from 'react';
-import { useChatStore } from '@/store/chat/chatStore';
-import { prepareNewUserMessage } from '@/modules/Chat/utils/prepareNewUserMessage';
+
 import { getAnswer } from '@/modules/Chat/api/api';
+import { prepareNewUserMessage } from '@/modules/Chat/utils/prepareNewUserMessage';
+import { useChatStore } from '@/store/chat/chatStore';
 
 export const useChatControls = () => {
   const [message, setMessage] = useState('');

@@ -1,9 +1,10 @@
 import React, { ComponentPropsWithRef } from 'react';
-import { ClearButton } from '@/components/Buttons';
-import { StopIcon } from '@/shared/ui';
 
 import cls from './StopButton.module.css';
+
+import { ClearButton } from '@/components/Buttons';
 import { Tooltip } from '@/components/Tooltip';
+import { StopIcon } from '@/shared/ui';
 
 export const StopButton = (props: ComponentPropsWithRef<'button'>) => {
   return (

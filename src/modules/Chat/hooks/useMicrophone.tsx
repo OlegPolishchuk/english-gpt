@@ -1,6 +1,7 @@
 import 'regenerator-runtime/runtime';
 
 import { useEffect, useRef, useState } from 'react';
+
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 const MIC_INIT_DELAY = 3000;

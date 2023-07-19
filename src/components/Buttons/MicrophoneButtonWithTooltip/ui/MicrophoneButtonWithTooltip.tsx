@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { Popover, Text } from '@mantine/core';
+
 import { MicrophoneButton } from '@/components/Buttons/MicrophoneButton';
 
 interface Props {
