@@ -11,7 +11,7 @@ import { PauseIcon } from '@/shared/ui';
 export const PauseButton = (props: ComponentPropsWithRef<'button'>) => {
   return (
     <Tooltip label={'Pause'}>
-      <ClearButton className={clsx(cls.button, props.className)}>
+      <ClearButton className={clsx(cls.button, props.className)} {...props}>
         <PauseIcon className={cls.icon} />
       </ClearButton>
     </Tooltip>

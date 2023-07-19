@@ -8,10 +8,12 @@ export const useSpeechFromText = (speakerNumber = SPEAKER_NUMBER) => {
 
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
   const startSpeaking = useCallback(
     (text: string) => {
       setIsFinished(false);
+      setIsPaused(false);
 
       if (typeof window !== 'undefined') {
         synth.current = window.speechSynthesis;
@@ -45,33 +47,32 @@ export const useSpeechFromText = (speakerNumber = SPEAKER_NUMBER) => {
   );
 
   const stopSpeaking = useCallback(() => {
-    if (synth && synth.current?.speaking) {
+    if (synth.current && (synth.current.speaking || synth.current.paused)) {
       synth.current.cancel();
-
       setIsSpeaking(false);
       setIsFinished(false);
+      setIsPaused(false);
     }
   }, []);
 
   const pauseSpeaking = useCallback(() => {
-    if (synth && synth.current?.speaking) {
+    if (synth.current && synth.current.speaking && !isPaused) {
       synth.current.pause();
-
-      setIsSpeaking(false);
+      setIsPaused(true);
     }
-  }, []);
+  }, [isPaused]);
 
   const resumeSpeaking = useCallback(() => {
-    if (synth && synth.current?.paused) {
+    if (synth.current && isPaused) {
       synth.current.resume();
-
+      setIsPaused(false);
       setIsSpeaking(true);
     }
-  }, []);
+  }, [isPaused]);
 
   useEffect(() => {
     return () => {
-      if (synth.current && synth.current.speaking) {
+      if (synth.current && (synth.current.speaking || synth.current.paused)) {
         synth.current.cancel();
       }
     };

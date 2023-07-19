@@ -11,19 +11,25 @@ interface Props {
 }
 
 export const MessageAudioPlayer = ({ message }: Props) => {
-  const { startSpeaking, isSpeaking, pauseSpeaking, stopSpeaking, isFinished } =
-    useSpeechFromText();
+  const {
+    startSpeaking,
+    isSpeaking,
+    pauseSpeaking,
+    stopSpeaking,
+    isFinished,
+    resumeSpeaking,
+  } = useSpeechFromText();
 
   console.log({ isSpeaking });
   return (
     <div className={cls.player}>
       {isSpeaking && !isFinished ? (
         <>
-          <StopButton />
+          <StopButton onClick={stopSpeaking} />
 
-          <PlayButton />
+          <PlayButton onClick={resumeSpeaking} />
 
-          <PauseButton />
+          <PauseButton onClick={pauseSpeaking} />
         </>
       ) : (
         <DynamicButton onClick={() => startSpeaking(message)} />

@@ -11,7 +11,7 @@ import { PlayIcon } from '@/shared/ui';
 export const PlayButton = (props: ComponentPropsWithRef<'button'>) => {
   return (
     <Tooltip label={'Continue'}>
-      <ClearButton className={clsx(cls.button, props.className)}>
+      <ClearButton className={clsx(cls.button, props.className)} {...props}>
         <PlayIcon className={cls.icon} />
       </ClearButton>
     </Tooltip>

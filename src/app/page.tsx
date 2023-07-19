@@ -1,4 +1,5 @@
-import styles from 'src/app/styles/page.module.css';
+import styles from './styles/page.module.css';
+
 import { Chat } from '@/modules';
 
 export default function Home() {
