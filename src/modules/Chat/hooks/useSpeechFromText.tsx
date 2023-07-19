@@ -6,7 +6,7 @@ export const useSpeechFromText = (speakerNumber = SPEAKER_NUMBER) => {
   const synth = useRef<SpeechSynthesis | undefined>();
   const utterance = useRef<SpeechSynthesisUtterance | undefined>();
 
-  const speak = useCallback((text: string) => {
+  const startSpeaking = useCallback((text: string) => {
     if (typeof window !== 'undefined') {
       synth.current = window.speechSynthesis;
       utterance.current = new SpeechSynthesisUtterance();
@@ -57,7 +57,7 @@ export const useSpeechFromText = (speakerNumber = SPEAKER_NUMBER) => {
   }, []);
 
   return {
-    speak,
+    startSpeaking,
     stopSpeaking,
     pauseSpeaking,
     resumeSpeaking,
