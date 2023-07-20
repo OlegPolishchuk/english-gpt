@@ -3,4 +3,6 @@ export const Routes = {
   auth: {
     google: '/api/auth/google',
   },
+  protected: { profile: '/profile' },
+  profile: '/profile',
 };

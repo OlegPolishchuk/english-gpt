@@ -3,9 +3,12 @@
 import React from 'react';
 
 import { Button } from '@mantine/core';
+import Link from 'next/link';
 import { useSession, signIn, signOut } from 'next-auth/react';
 
 import cls from '../Header.module.css';
+
+import { Routes } from '@/shared/constants/routes';
 
 export const Controls = () => {
   const { data, status } = useSession();
@@ -20,9 +23,13 @@ export const Controls = () => {
   return (
     <div className={cls.controls}>
       {status === 'authenticated' ? (
-        <Button onClick={handleSignOut} variant={'filled'} color={'green'}>
-          Logout
-        </Button>
+        <>
+          <Link href={Routes.protected.profile}>Profile</Link>
+
+          <Button onClick={handleSignOut} variant={'filled'} color={'green'}>
+            Logout
+          </Button>
+        </>
       ) : (
         <Button
           component={'a'}
