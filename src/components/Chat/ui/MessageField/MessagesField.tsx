@@ -17,13 +17,11 @@ export const MessagesField = () => {
 
   const lastMessageInListRef = useRef<HTMLDivElement>(null);
 
-  const scrollAreaRef = useRef<HTMLDivElement>(null);
-
   useScrollMessagesToBottom(lastMessageInListRef, messages.length);
 
   return (
-    <ScrollArea className={cls.scrollArea} viewportRef={scrollAreaRef}>
-      <div className={clsx(cls.messagesFiled, 'container')} ref={scrollAreaRef}>
+    <ScrollArea className={cls.scrollArea}>
+      <div className={clsx(cls.messagesFiled, 'container')}>
         {messages.map((message, index) => (
           <ChatMessage
             message={message}

@@ -5,7 +5,7 @@ import { Inter } from 'next/font/google';
 import 'regenerator-runtime/runtime';
 
 import { Header } from '@/components/Header';
-import { Mantine } from '@/components/MantineProvider';
+import { GlobalProvider } from '@/components/Providers/GlobalProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,12 +17,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <Mantine>
+      <GlobalProvider>
         <body className={inter.className}>
           <Header />
           {children}
         </body>
-      </Mantine>
+      </GlobalProvider>
     </html>
   );
 }
