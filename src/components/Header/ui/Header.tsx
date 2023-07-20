@@ -4,13 +4,13 @@ import clsx from 'clsx';
 
 import cls from './Header.module.css';
 
-import { Controls } from '@/components/Header/ui/Components/Controls';
+import { SignInButtons } from '@/components/Buttons';
 
 export const Header = () => {
   return (
     <header className={cls.header}>
       <div className={clsx('container', cls.container)}>
-        <Controls />
+        <SignInButtons />
       </div>
     </header>
   );

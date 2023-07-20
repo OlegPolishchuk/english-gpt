@@ -5,4 +5,5 @@ export const Routes = {
   },
   protected: { profile: '/profile' },
   profile: '/profile',
+  signin: '/signin',
 };

@@ -1,0 +1,15 @@
+.form {
+  width: 95%;
+  max-width: 500px;
+}
+
+.title {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}

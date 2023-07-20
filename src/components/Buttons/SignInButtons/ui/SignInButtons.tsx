@@ -4,21 +4,23 @@ import React from 'react';
 
 import { Button } from '@mantine/core';
 import Link from 'next/link';
-import { signOut, useSession } from 'next-auth/react';
-
-import cls from '../Header.module.css';
+import { signOut, useSession, signIn } from 'next-auth/react';
 
 import { Routes } from '@/shared/constants/routes';
 
-export const Controls = () => {
-  const { data, status } = useSession();
+export const SignInButtons = () => {
+  const { status } = useSession();
 
   const handleSignOut = async () => {
-    await signOut({ callbackUrl: '/' });
+    await signOut({ callbackUrl: Routes.main });
+  };
+
+  const handleSignIn = async () => {
+    await signIn('');
   };
 
   return (
-    <div className={cls.controls}>
+    <>
       {status === 'authenticated' ? (
         <>
           <Link href={Routes.protected.profile}>Profile</Link>
@@ -29,6 +31,7 @@ export const Controls = () => {
         </>
       ) : (
         <Button
+          onClick={handleSignIn}
           component={'a'}
           href={'/api/auth/signin'}
           variant={'filled'}
@@ -37,6 +40,6 @@ export const Controls = () => {
           Sign In
         </Button>
       )}
-    </div>
+    </>
   );
 };

@@ -5,3 +5,6 @@ export { SendIcon } from './SendIcon';
 export { PlayIcon } from './PlayIcon';
 export { StopIcon } from './StopIcon';
 export { PauseIcon } from './PauseIcon';
+export { GoogleIcon } from './GoogleIcon';
+export { TwitterIcon } from './TwitterIcon';
+export { GithubIcon } from './GithubIcon';

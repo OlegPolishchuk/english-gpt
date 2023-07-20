@@ -5,4 +5,4 @@ export * from './PlayButton';
 export * from './PauseButton';
 export * from './MicrophoneButton';
 export * from './MicrophoneButtonWithTooltip';
-export * from './SendButton';
+export * from './SignInButtons';
