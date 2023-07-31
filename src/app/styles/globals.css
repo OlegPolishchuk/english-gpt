@@ -17,6 +17,7 @@
   /*--color-button-send: #45b7d7;*/
   --color-button-send: var(--color-theme);
   --color-button-send-hover: #27849d;
+  --color-button-desabled: #afafaf;
 
   --bg-main: #f6f6f6;
   --bg-message: #fff;

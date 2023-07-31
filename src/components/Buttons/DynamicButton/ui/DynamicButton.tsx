@@ -2,8 +2,6 @@
 
 import React from 'react';
 
-import { Button } from '@mantine/core';
-
 import cls from './DynamicButton.module.css';
 
 import { Tooltip } from '@/components/Tooltip';
@@ -18,9 +16,9 @@ export const DynamicButton = ({ onClick }: Props) => {
 
   return (
     <Tooltip label={label}>
-      <Button variant={'subtle'} className={cls.button} onClick={onClick}>
+      <button className={cls.button} onClick={onClick}>
         <SoundIcon className={cls.icon_sound} />
-      </Button>
+      </button>
     </Tooltip>
   );
 };

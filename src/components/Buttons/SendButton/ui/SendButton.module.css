@@ -2,7 +2,13 @@
   width: 50px;
   height: 50px;
 
+  border: none;
+  outline: none;
+
+  background-color: transparent;
+
   padding: 10px;
+  cursor: pointer;
 }
 
 .button svg {
@@ -14,7 +20,11 @@
 }
 
 .button:disabled {
-  background-color: transparent;
+  pointer-events: none;
 
-  opacity: .6;
+  opacity: .4;
+}
+
+.button:disabled svg {
+  fill : var(--color-button-desabled);
 }

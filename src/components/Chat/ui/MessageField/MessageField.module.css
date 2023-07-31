@@ -1,6 +1,6 @@
 .scrollArea {
   width: 100%;
-  height: calc(100vh - 65px - 55px); /* header 65px, footer 55px at start */
+  height: calc(100vh - 65px - 76px); /* header 65px, footer 55px at start */
 
   flex-grow: 1;
   background-color: #F8F9FA;

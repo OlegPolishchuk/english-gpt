@@ -2,10 +2,9 @@
 
 import React, { ComponentPropsWithRef } from 'react';
 
-import { Button } from '@mantine/core';
 import clsx from 'clsx';
 
-import cls from './SensButton.module.css';
+import cls from './SendButton.module.css';
 
 import { SendIcon } from '@/shared/ui';
 
@@ -15,13 +14,12 @@ export const SendButton = ({
   ...restProps
 }: ComponentPropsWithRef<'button'>) => {
   return (
-    <Button
-      variant={'subtle'}
+    <button
       className={clsx(cls.button, className && className)}
       {...restProps}
       onClick={onClick}
     >
       <SendIcon />
-    </Button>
+    </button>
   );
 };
