@@ -8,5 +8,6 @@ export interface User {
   email: string;
   name?: Nullable<string>;
   created: string;
+  image?: string;
   activity: InputJsonObject;
 }

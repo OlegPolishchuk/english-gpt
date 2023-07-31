@@ -6,6 +6,7 @@ export const createNewUser = (user: UserFromNextAuth): User => {
     email: user.email,
     name: user.name,
     created: new Date().toISOString(),
+    image: user.image,
     activity: {
       totalCountOfVisit: 1,
       weekActivity: 1,
