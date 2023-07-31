@@ -7,10 +7,10 @@ import { Button } from '@mantine/core';
 import { GithubIcon } from '@/shared/ui';
 
 interface Props {
-  callbackUrl: string;
+  callback: (provider: string) => void;
 }
 
-export const GitHubButton = ({ callbackUrl }: Props) => {
+export const GitHubButton = ({ callback }: Props) => {
   return (
     <Button rightIcon={<GithubIcon />} color={'red'} disabled>
       Sign in with Github

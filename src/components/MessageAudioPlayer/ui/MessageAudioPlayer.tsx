@@ -20,7 +20,6 @@ export const MessageAudioPlayer = ({ message }: Props) => {
     resumeSpeaking,
   } = useSpeechFromText();
 
-  console.log({ isSpeaking });
   return (
     <div className={cls.player}>
       {isSpeaking && !isFinished ? (

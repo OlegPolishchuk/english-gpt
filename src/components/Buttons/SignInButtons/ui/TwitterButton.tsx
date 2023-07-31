@@ -7,10 +7,10 @@ import { Button } from '@mantine/core';
 import { TwitterIcon } from '@/shared/ui';
 
 interface Props {
-  callbackUrl: string;
+  callback: (provider: string) => void;
 }
 
-export const TwitterButton = ({ callbackUrl }: Props) => {
+export const TwitterButton = ({ callback }: Props) => {
   return (
     <Button rightIcon={<TwitterIcon />} color={'cyan'} disabled>
       Sign in with Twitter
