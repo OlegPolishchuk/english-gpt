@@ -11,7 +11,7 @@ model User {
   id       Int        @id @default(autoincrement())
   email    String     @unique
   name     String?
-  created  DateTime
+  created  DateTime   @default(now()) @db.Timestamp(3)
   image    String?
   Activity Activity[]
 }
@@ -23,5 +23,6 @@ model Activity {
   total_count_of_visits Int
   week_count_of_visits  Int
   consecutive_visits    Int
-  last_visit            DateTime
+  last_visit            DateTime @default(now()) @db.Timestamp(3)
+  dates_of_visits       String[]
 }

@@ -1,6 +1,9 @@
 import dayjs from 'dayjs';
 
-export const checkDatesToSameWeek = (previousDate: string, currentDate: string) => {
+export const checkDatesToSameWeek = (
+  previousDate: string | Date,
+  currentDate: string | Date,
+) => {
   const previousVisitDate = dayjs(previousDate);
   const currentVisitDate = dayjs(currentDate);
 

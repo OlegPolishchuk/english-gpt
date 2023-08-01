@@ -5,4 +5,5 @@ export interface UserActivity {
   week_count_of_visits: number;
   consecutive_visits: number;
   last_visit: string;
+  dates_of_visits: string[];
 }

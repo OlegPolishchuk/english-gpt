@@ -6,7 +6,7 @@ export const findUser = async (userEmail: string) => {
 
     return user;
   } catch (e) {
-    console.log(e);
+    console.log('Error in findUser.ts', e);
     await disconnectFromDb(prisma);
   }
 };

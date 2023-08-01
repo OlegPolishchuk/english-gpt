@@ -7,5 +7,6 @@ export const createNewActivities = (userId: number): UserActivity => {
     total_count_of_visits: 1,
     week_count_of_visits: 1,
     consecutive_visits: 1,
+    dates_of_visits: [new Date().toISOString()],
   };
 };

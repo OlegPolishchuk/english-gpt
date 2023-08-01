@@ -2,6 +2,7 @@ import NextAuth from 'next-auth';
 
 import { authConfig } from '@/configs';
 import { findUser, insertUserToDb } from '@/server/services/db';
+import { updateActivity } from '@/server/services/db/activity';
 import { UserFromNextAuth } from '@/server/types';
 import { createNewUser } from '@/server/utils';
 
@@ -13,14 +14,20 @@ const handler = NextAuth({
         try {
           const { user } = session;
 
-          if (user && user.email) {
-            const userFromDb = await findUser(user.email);
-
-            if (!userFromDb) {
-              const newUser = createNewUser(user as UserFromNextAuth);
-              await insertUserToDb(newUser);
-            }
+          if (!user?.email) {
+            return null;
           }
+
+          const userFromDb = await findUser(user.email);
+
+          if (!userFromDb) {
+            const newUser = createNewUser(user as UserFromNextAuth);
+            await insertUserToDb(newUser);
+
+            return;
+          }
+
+          await updateActivity(userFromDb.id);
         } catch (e) {
           console.log('Error in next.auth => route.ts', e);
         }
