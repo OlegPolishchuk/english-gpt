@@ -95,3 +95,8 @@
 .date.isUser {
   color: var(--color-message-date-user);
 }
+
+
+.text_container {
+  word-break: break-word;
+}
