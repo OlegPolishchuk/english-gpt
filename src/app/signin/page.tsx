@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import cls from './signin.module.css';
 
-import { SignInForm } from '@/components/SigInForm';
+import { SignInForm } from '@/modules/Auth';
 
 export default function SignIn() {
   return (
