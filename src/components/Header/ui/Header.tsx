@@ -1,16 +1,21 @@
 import React from 'react';
 
 import clsx from 'clsx';
+import { getServerSession } from 'next-auth';
 
+import { Controls } from './Components/Controls';
 import cls from './Header.module.css';
 
-import { SignInButtons } from '@/components/Buttons';
+import { authConfig } from '@/configs';
 
-export const Header = () => {
+export const Header = async () => {
+  const session = await getServerSession(authConfig);
+  const isAuth = !!session?.user?.name;
+
   return (
     <header className={cls.header}>
       <div className={clsx('container', cls.container)}>
-        <SignInButtons />
+        <Controls isAuth={isAuth} />
       </div>
     </header>
   );

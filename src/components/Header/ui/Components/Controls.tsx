@@ -2,40 +2,31 @@
 
 import React from 'react';
 
-import { Button } from '@mantine/core';
-import Link from 'next/link';
-import { signOut, useSession } from 'next-auth/react';
+import { useDisclosure } from '@mantine/hooks';
+import { signOut } from 'next-auth/react';
 
 import cls from '../Header.module.css';
 
+import { MenuButton, SignInButton } from '@/components/Buttons';
+import { Navigation } from '@/components/Navigation';
 import { Routes } from '@/shared/constants/routes';
 
-export const Controls = () => {
-  const { data, status } = useSession();
+interface Props {
+  isAuth: boolean;
+}
 
-  const handleSignOut = async () => {
-    await signOut({ callbackUrl: '/' });
-  };
+export const Controls = ({ isAuth }: Props) => {
+  const [opened, { open, close }] = useDisclosure(false);
 
   return (
     <div className={cls.controls}>
-      {status === 'authenticated' ? (
+      {isAuth ? (
         <>
-          <Link href={Routes.protected.profile}>Profile</Link>
-
-          <Button onClick={handleSignOut} variant={'filled'} color={'green'}>
-            Logout
-          </Button>
+          <MenuButton handleOpen={open} />
+          <Navigation opened={opened} close={close} />
         </>
       ) : (
-        <Button
-          component={'a'}
-          href={'/api/auth/signin'}
-          variant={'filled'}
-          color={'green'}
-        >
-          Sign In
-        </Button>
+        <SignInButton />
       )}
     </div>
   );

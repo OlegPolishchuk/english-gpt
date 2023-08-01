@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { Paper, Title } from '@mantine/core';
+import { Divider, Paper, Title } from '@mantine/core';
 import { useSearchParams } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 
@@ -26,9 +26,11 @@ export const SignInForm = () => {
 
   return (
     <Paper shadow="md" radius="md" p="xl" className={cls.form}>
-      <Title order={3} className={cls.title}>
+      <Title order={3} color={'dimmed'} className={cls.title}>
         Sign In:
       </Title>
+
+      <Divider my={'md'} />
 
       <div className={cls.buttons}>
         <GoogleButton callback={handleClick} />

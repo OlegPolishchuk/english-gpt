@@ -6,3 +6,4 @@ export * from './PauseButton';
 export * from './MicrophoneButton';
 export * from './MicrophoneButtonWithTooltip';
 export * from './SignInButtons';
+export * from './MenuButton';
