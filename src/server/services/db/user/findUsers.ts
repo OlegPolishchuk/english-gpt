@@ -1,9 +1,6 @@
-import { PrismaClient } from '@prisma/client';
-
-import { disconnectFromDb } from '@/server/services/db';
+import { disconnectFromDb, prisma } from '@/server/services/db';
 
 export const findUsers = async () => {
-  const prisma = new PrismaClient();
   try {
     const users = await prisma.user.findMany();
 

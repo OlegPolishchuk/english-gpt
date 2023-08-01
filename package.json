@@ -16,6 +16,7 @@
     "@mantine/next": "^6.0.16",
     "@prisma/client": "^5.0.0",
     "clsx": "^1.2.1",
+    "dayjs": "^1.11.9",
     "eslint-plugin-import": "^2.27.5",
     "next": "13.4.9",
     "next-auth": "^4.22.3",

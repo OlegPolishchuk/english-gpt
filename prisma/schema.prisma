@@ -8,10 +8,20 @@ datasource db {
 }
 
 model User {
-  id       Int      @id @default(autoincrement())
-  email    String   @unique
+  id       Int        @id @default(autoincrement())
+  email    String     @unique
   name     String?
   created  DateTime
   image    String?
-  activity Json
+  Activity Activity[]
+}
+
+model Activity {
+  id                    Int      @id @default(autoincrement())
+  user                  User     @relation(fields: [user_id], references: [id])
+  user_id               Int
+  total_count_of_visits Int
+  week_count_of_visits  Int
+  consecutive_visits    Int
+  last_visit            DateTime
 }

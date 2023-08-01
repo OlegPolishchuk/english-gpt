@@ -10,16 +10,19 @@ const handler = NextAuth({
   callbacks: {
     session({ session }) {
       (async () => {
-        const { user } = session;
+        try {
+          const { user } = session;
 
-        if (user && user.email) {
-          const userFromDb = await findUser(user.email);
+          if (user && user.email) {
+            const userFromDb = await findUser(user.email);
 
-          if (!userFromDb) {
-            const newUser = createNewUser(user as UserFromNextAuth);
-            console.log({ newUser });
-            await insertUserToDb(newUser);
+            if (!userFromDb) {
+              const newUser = createNewUser(user as UserFromNextAuth);
+              await insertUserToDb(newUser);
+            }
           }
+        } catch (e) {
+          console.log('Error in next.auth => route.ts', e);
         }
       })();
 
