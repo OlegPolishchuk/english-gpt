@@ -19,7 +19,6 @@ const handler = NextAuth({
           }
 
           const userFromDb = await findUser(user.email);
-          console.log({ userFromDb });
           if (!userFromDb) {
             const newUser = createNewUser(user as UserFromNextAuth);
             await insertUserToDb(newUser);
@@ -27,7 +26,7 @@ const handler = NextAuth({
             return;
           }
 
-          await updateActivity(userFromDb.id);
+          await updateActivity(userFromDb.email);
           await disconnectFromDb(prisma);
         } catch (e) {
           console.log('Error in next.auth => route.ts', e);

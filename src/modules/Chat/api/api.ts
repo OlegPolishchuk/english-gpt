@@ -1,5 +1,5 @@
-import { sendMessageToGpt } from '@/gptService/gptService';
 import { Message } from '@/models';
+import { sendMessageToGpt } from '@/services/gptService/gptService';
 
 export const getAnswer = async (message: string) => {
   try {

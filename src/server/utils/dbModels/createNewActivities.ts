@@ -1,8 +1,8 @@
 import { UserActivity } from '@/models';
 
-export const createNewActivities = (userId: number): UserActivity => {
+export const createNewActivities = (userEmail: string): UserActivity => {
   return {
-    user_id: userId,
+    user_email: userEmail,
     last_visit: new Date().toISOString(),
     total_count_of_visits: 1,
     week_count_of_visits: 1,

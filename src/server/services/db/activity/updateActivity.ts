@@ -6,9 +6,9 @@ import {
   checkDateToYesterday,
 } from '@/server/utils';
 
-export const updateActivity = async (userId: number) => {
+export const updateActivity = async (userEmail: string) => {
   try {
-    const userActivity = await findUserActivity(userId);
+    const userActivity = await findUserActivity(userEmail);
 
     if (userActivity) {
       const lastVisit = userActivity.last_visit;
@@ -18,15 +18,17 @@ export const updateActivity = async (userId: number) => {
       const isDaysInARow = checkDateToYesterday(lastVisit, now);
       const isSameDay = checkDatesToSameDay(lastVisit, now);
 
+      const updatedData = {
+        total_count_of_visits: { increment: 1 },
+        week_count_of_visits: { increment: isSameWeek ? 1 : 0 },
+        consecutive_visits: { increment: isDaysInARow ? 1 : 0 },
+        last_visit: now,
+        dates_of_visits: { push: now },
+      };
+
       await prisma.activity.update({
         where: { id: userActivity.id },
-        data: {
-          total_count_of_visits: { increment: 1 },
-          week_count_of_visits: { increment: isSameWeek ? 1 : 0 },
-          consecutive_visits: { increment: isDaysInARow ? 1 : 0 },
-          last_visit: now,
-          ...(!isSameDay && { dates_of_visits: { push: now } }),
-        },
+        data: { ...(!isSameDay && updatedData) },
       });
     }
   } catch (e) {

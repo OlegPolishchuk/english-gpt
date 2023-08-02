@@ -18,8 +18,8 @@ model User {
 
 model Activity {
   id                    Int      @id @default(autoincrement())
-  user                  User     @relation(fields: [user_id], references: [id])
-  user_id               Int
+  user                  User     @relation(fields: [user_email], references: [email])
+  user_email            String
   total_count_of_visits Int
   week_count_of_visits  Int
   consecutive_visits    Int
