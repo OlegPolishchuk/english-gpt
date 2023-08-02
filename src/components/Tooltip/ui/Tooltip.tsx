@@ -9,11 +9,17 @@ interface Props {
   label: string;
   withArrow?: boolean;
   offset?: number;
+  className?: string;
 }
 
-export const Tooltip = ({ children, label, withArrow, offset }: Props) => {
+export const Tooltip = ({ children, label, withArrow, offset, className }: Props) => {
   return (
-    <MantineTooltip label={label} withArrow={withArrow} offset={offset}>
+    <MantineTooltip
+      label={label}
+      withArrow={withArrow}
+      offset={offset}
+      className={className}
+    >
       {children}
     </MantineTooltip>
   );
