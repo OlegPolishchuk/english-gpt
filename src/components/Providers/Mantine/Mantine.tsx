@@ -1,12 +1,13 @@
-'use client';
-
-import { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 
 import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
-import { MantineProvider } from '@mantine/core';
+import { CSSObject, MantineProvider } from '@mantine/core';
 import { useServerInsertedHTML } from 'next/navigation';
-import { SessionProvider } from 'next-auth/react';
+
+interface Props {
+  children: ReactNode;
+}
 
 export const useGluedEmotionCache = (key = 'emotion') => {
   const [cache] = useState(() => {
@@ -34,14 +35,12 @@ export const useGluedEmotionCache = (key = 'emotion') => {
   return cache;
 };
 
-export const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
+export const Mantine = ({ children }: Props) => {
   const cache = useGluedEmotionCache();
 
   return (
     <CacheProvider value={cache}>
-      <SessionProvider>
-        <MantineProvider emotionCache={cache}>{children}</MantineProvider>
-      </SessionProvider>
+      <MantineProvider emotionCache={cache}>{children}</MantineProvider>
     </CacheProvider>
   );
 };

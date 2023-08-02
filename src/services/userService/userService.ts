@@ -1,6 +1,6 @@
 import { User, UserActivity } from '@/models';
 import { ServerRoutes } from '@/server/constants';
-interface UserDataResponse extends User {
+export interface UserDataResponse extends User {
   Activity: UserActivity[];
 }
 

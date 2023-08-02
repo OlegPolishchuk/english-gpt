@@ -1,19 +1,12 @@
 import React from 'react';
 
-import { getServerSession } from 'next-auth';
-
-import { authConfig } from '@/configs';
-import { userService } from '@/services';
+import { Profile } from '@/modules/Profile';
 
 const Page = async () => {
-  const session = await getServerSession(authConfig);
-
-  const userData = await userService.getUserData(session?.user?.email || '');
-
   return (
-    <div>
-      <pre>{JSON.stringify(userData, null, 2)}</pre>
-    </div>
+    <main className={'container'}>
+      <Profile />
+    </main>
   );
 };
 

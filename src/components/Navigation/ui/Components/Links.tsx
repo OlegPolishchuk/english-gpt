@@ -3,6 +3,7 @@ import React from 'react';
 import { NavLink } from '@mantine/core';
 import { usePathname } from 'next/navigation';
 
+import { LogoutButton } from '@/components/Buttons';
 import cls from '@/components/Navigation/ui/Navigation.module.css';
 import { Routes } from '@/shared/constants';
 
@@ -33,10 +34,13 @@ export const Links = ({ onClick }: Props) => {
             onClick={() => onClick(link.path)}
             color={'green'}
             active={isActive(link.path)}
+            className={cls.link}
             classNames={{ label: cls.link_label }}
           />
         ))}
       </div>
+
+      <LogoutButton className={cls.button_logout} />
     </nav>
   );
 };

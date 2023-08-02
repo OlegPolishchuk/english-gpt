@@ -12,6 +12,6 @@ export async function POST(request: NextRequest) {
   const userData = await getUserData(userEmail);
 
   return NextResponse.json({
-    userData,
+    ...userData,
   });
 }

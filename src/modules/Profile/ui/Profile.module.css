@@ -1,0 +1,52 @@
+.container {
+  padding: 20px 0;
+}
+
+.description {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  gap: 20px;
+}
+
+.user_info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+.sub_info {
+  font-size: 14px;
+}
+
+.user_image {
+  border-radius: 50%;
+}
+
+.statistic_container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.statistic_content {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+
+  gap: 10px;
+}
+
+.visits {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+@media (min-width: 993px) {
+  .statistic_content {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

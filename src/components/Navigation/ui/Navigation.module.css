@@ -21,6 +21,14 @@
   margin-bottom: 50px;
 }
 
+.links .link {
+  border-top: 1px solid var(--color-border);
+}
+
+.links .link:last-of-type {
+  border-bottom: 1px solid var(--color-border);
+}
+
 .links .link_label {
   font-size: 22px;
 }

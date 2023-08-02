@@ -5,7 +5,7 @@ import { Inter } from 'next/font/google';
 import 'regenerator-runtime/runtime';
 
 import { Header } from '@/components/Header';
-import { GlobalProvider } from '@/components/Providers/GlobalProvider';
+import { GlobalProvider } from '@/components/Providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
