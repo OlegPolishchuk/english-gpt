@@ -7,5 +7,8 @@ export const checkDatesToSameDay = (
   const previousVisitDate = dayjs(previousDate);
   const currentVisitDate = dayjs(currentDate);
 
-  return currentVisitDate.isSame(previousVisitDate);
+  console.log(previousVisitDate);
+  console.log(currentVisitDate);
+
+  return currentVisitDate.isSame(previousVisitDate, 'day');
 };

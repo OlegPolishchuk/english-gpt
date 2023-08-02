@@ -1,4 +1,3 @@
-import { UserActivity } from '@/models';
 import { prisma } from '@/server/services/db';
 import { findUserActivity } from '@/server/services/db/activity/findUserActivity';
 import {
@@ -26,7 +25,7 @@ export const updateActivity = async (userId: number) => {
           week_count_of_visits: { increment: isSameWeek ? 1 : 0 },
           consecutive_visits: { increment: isDaysInARow ? 1 : 0 },
           last_visit: now,
-          ...(isSameDay && { dates_of_visits: { push: now } }),
+          ...(!isSameDay && { dates_of_visits: { push: now } }),
         },
       });
     }
