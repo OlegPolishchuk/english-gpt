@@ -52,12 +52,6 @@ export const Description = ({ userData, className }: Props) => {
           />
         )}
       </div>
-
-      <Space my={100} />
-
-      <Divider my={'xs'} />
-
-      <Space my={100} />
     </>
   );
 };
