@@ -1,17 +1,8 @@
-.drawer {
-
-}
-
-.drawer .drawer_content {
-  padding: 0
-}
-.drawer .drawer_body {
-  padding: 0;
-}
-
 .navigation {
   display: flex;
   flex-direction: column;
+
+  height: 100%;
 }
 
 .links {
@@ -30,10 +21,15 @@
 }
 
 .links .link_label {
-  font-size: 22px;
+  font-size: 20px;
 }
 
-.button_logout {
+.controls {
   margin-top: auto;
-  margin-left: 0.75rem;
+}
+
+@media (min-width: 992px) {
+  .links .link_label {
+    font-size: 18px;
+  }
 }

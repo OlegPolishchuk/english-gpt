@@ -1,0 +1,15 @@
+.navbar {
+  display: none;
+}
+
+.links .link_label {
+  font-size: 18px;
+}
+
+
+@media (min-width: 992px) {
+  .navbar {
+    display: block;
+    height: 100%;
+  }
+}

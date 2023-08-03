@@ -6,24 +6,22 @@ import { Drawer } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { useRouter } from 'next/navigation';
 
-import cls from './Navigation.module.css';
+import cls from './Mobile.module.css';
 
 import { MenuButton } from '@/components/Buttons';
 import { Links } from '@/components/Navigation/ui/Components/Links';
 
-export const Navigation = () => {
+export const MobileNav = () => {
   const router = useRouter();
-
   const [opened, { open, close }] = useDisclosure(false);
 
   const handleClick = async (path: string) => {
-    console.log(path);
     await router.push(path);
     close();
   };
 
   return (
-    <>
+    <div className={cls.mobile_nav}>
       <MenuButton handleOpen={open} />
       <Drawer
         opened={opened}
@@ -37,6 +35,6 @@ export const Navigation = () => {
       >
         <Links onClick={handleClick} />
       </Drawer>
-    </>
+    </div>
   );
 };

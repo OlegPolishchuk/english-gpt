@@ -19,7 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <GlobalProvider>
         <body className={inter.className}>
-          <Header />
+          <Header className={'container'} />
           {children}
         </body>
       </GlobalProvider>

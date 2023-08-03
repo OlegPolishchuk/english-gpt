@@ -1,0 +1,27 @@
+.drawer .drawer_content {
+  padding: 0
+}
+
+.drawer .drawer_body {
+  padding: 0 0 50px 0;
+
+  height: calc(100% - 54px);
+}
+
+
+
+.button_logout {
+  margin-top: auto;
+  margin-left: 0.75rem;
+}
+
+
+@media (min-width: 992px) {
+  .mobile_nav {
+    display: none;
+  }
+
+  .drawer {
+    display: none;
+  }
+}

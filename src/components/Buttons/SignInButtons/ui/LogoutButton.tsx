@@ -2,11 +2,11 @@
 
 import React from 'react';
 
-import { ActionIcon } from '@mantine/core';
+import { Button } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import { signOut } from 'next-auth/react';
 import { Logout } from 'tabler-icons-react';
 
-import { Tooltip } from '@/components/Tooltip';
 import { Routes } from '@/shared/constants';
 
 interface Props {
@@ -19,10 +19,14 @@ export const LogoutButton = ({ className }: Props) => {
   };
 
   return (
-    <Tooltip label={'Log out'} className={className}>
-      <ActionIcon onClick={handleSignOut}>
-        <Logout size={48} strokeWidth={2} color={'var(--color-theme)'} />
-      </ActionIcon>
-    </Tooltip>
+    <Button
+      className={className}
+      variant={'subtle'}
+      color={'gray'}
+      leftIcon={<Logout size={30} strokeWidth={1} />}
+      onClick={handleSignOut}
+    >
+      Logout
+    </Button>
   );
 };
