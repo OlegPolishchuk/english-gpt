@@ -19,6 +19,7 @@ const handler = NextAuth({
           }
 
           const userFromDb = await findUser(user.email);
+
           if (!userFromDb) {
             const newUser = createNewUser(user as UserFromNextAuth);
             await insertUserToDb(newUser);

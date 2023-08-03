@@ -1,15 +1,20 @@
-'use client';
-
 import React from 'react';
 
-import { SessionProvider } from 'next-auth/react';
+import { getServerSession } from 'next-auth';
 
 import { Mantine } from '../Mantine/Mantine';
+import { NextSessionProvider } from '../NextSession/NextSessionProvider';
 
-export const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
+import { authConfig } from '@/configs';
+import { userService } from '@/services';
+
+export const GlobalProvider = async ({ children }: { children: React.ReactNode }) => {
+  const session = await getServerSession(authConfig);
+  const userData = await userService.getUserData(session?.user?.email || '');
+
   return (
-    <SessionProvider>
+    <NextSessionProvider user={userData}>
       <Mantine>{children}</Mantine>
-    </SessionProvider>
+    </NextSessionProvider>
   );
 };

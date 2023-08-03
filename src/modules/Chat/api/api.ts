@@ -9,7 +9,7 @@ export const getAnswer = async (message: string) => {
       created: data.created,
       text: data.choices[0].message.content,
       isUser: false,
-      id: data.id,
+      id: +data.id,
     };
 
     return answer;
@@ -19,7 +19,7 @@ export const getAnswer = async (message: string) => {
       created: Date.now(),
       text: 'Error!!! Something went wrong',
       isUser: false,
-      id: '0',
+      id: 0,
     };
   }
 };

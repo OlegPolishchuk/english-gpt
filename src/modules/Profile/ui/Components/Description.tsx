@@ -2,12 +2,13 @@
 
 import React from 'react';
 
-import { Badge, Divider, Title } from '@mantine/core';
+import { Badge, Divider, Space, Title } from '@mantine/core';
 import clsx from 'clsx';
 import Image from 'next/image';
 
 import cls from '../Profile.module.css';
 
+import { UserAvatar } from '@/components/UserAvatar';
 import { User } from '@/models';
 import { formatDate } from '@/modules/Profile/utils';
 import { UserDataResponse } from '@/services';
@@ -42,7 +43,7 @@ export const Description = ({ userData, className }: Props) => {
         </div>
 
         {image && (
-          <Image
+          <UserAvatar
             className={cls.user_image}
             src={image}
             alt={'user image'}
@@ -52,7 +53,11 @@ export const Description = ({ userData, className }: Props) => {
         )}
       </div>
 
-      <Divider my={'xl'} />
+      <Space my={100} />
+
+      <Divider my={'xs'} />
+
+      <Space my={100} />
     </>
   );
 };

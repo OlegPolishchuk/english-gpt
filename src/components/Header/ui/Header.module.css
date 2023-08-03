@@ -1,6 +1,7 @@
 .header {
   padding: 14px;
   min-height: 65px;
+  max-height: 65px;
 
   box-shadow: var(--shadow-main);
 
@@ -14,5 +15,7 @@
 
 .controls {
   display: flex;
+  align-items: center;
+
   gap: 10px;
 }

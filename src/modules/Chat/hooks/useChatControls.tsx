@@ -19,7 +19,7 @@ export const useChatControls = () => {
   };
 
   const handleSendToChatGPT = async () => {
-    const newMessageId = `${Date.now()}`;
+    const newMessageId = Date.now();
     addMessageToList(prepareNewUserMessage(message, newMessageId));
     setMessage('');
 

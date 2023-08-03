@@ -1,8 +1,10 @@
+'use client';
+
 import React, { ReactNode, useState } from 'react';
 
 import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
-import { CSSObject, MantineProvider } from '@mantine/core';
+import { MantineProvider } from '@mantine/core';
 import { useServerInsertedHTML } from 'next/navigation';
 
 interface Props {
