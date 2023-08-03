@@ -1,4 +1,4 @@
-import { prisma } from '@/server/services/db';
+import { disconnectFromDb, prisma } from '@/server/services/db';
 import { findUserActivity } from '@/server/services/db/activity/findUserActivity';
 import {
   checkDatesToSameDay,
@@ -33,5 +33,7 @@ export const updateActivity = async (userEmail: string) => {
     }
   } catch (e) {
     console.log('Error in updateActivity.ts', e);
+  } finally {
+    await disconnectFromDb(prisma);
   }
 };

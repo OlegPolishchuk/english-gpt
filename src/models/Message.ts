@@ -1,5 +1,5 @@
 export interface Message {
-  id: string;
+  id: UniqueId;
   created: number;
   text: string;
   isUser: boolean;

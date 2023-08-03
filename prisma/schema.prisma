@@ -14,6 +14,7 @@ model User {
   created  DateTime   @default(now()) @db.Timestamp(3)
   image    String?
   Activity Activity[]
+  Word     Word[]
 }
 
 model Activity {
@@ -25,4 +26,13 @@ model Activity {
   consecutive_visits    Int
   last_visit            DateTime @default(now()) @db.Timestamp(3)
   dates_of_visits       String[]
+}
+
+model Word {
+  id            Int     @id @default(autoincrement())
+  user_email    User    @relation(fields: [user], references: [email])
+  user          String
+  title         String
+  translate     String
+  transcription String?
 }

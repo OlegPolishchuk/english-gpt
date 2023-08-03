@@ -1,10 +1,10 @@
 import NextAuth from 'next-auth';
 
 import { authConfig } from '@/configs';
-import { disconnectFromDb, findUser, insertUserToDb, prisma } from '@/server/services/db';
+import { createNewUser } from '@/models';
+import { findUser, insertUserToDb } from '@/server/services/db';
 import { updateActivity } from '@/server/services/db/activity';
 import { UserFromNextAuth } from '@/server/types';
-import { createNewUser } from '@/server/utils';
 
 const handler = NextAuth({
   ...authConfig,
@@ -27,7 +27,6 @@ const handler = NextAuth({
           }
 
           await updateActivity(userFromDb.email);
-          await disconnectFromDb(prisma);
         } catch (e) {
           console.log('Error in next.auth => route.ts', e);
         }
