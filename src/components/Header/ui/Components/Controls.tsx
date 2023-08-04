@@ -3,6 +3,7 @@
 import React from 'react';
 
 import { Divider } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 
 import cls from '../Header.module.css';
 
@@ -16,6 +17,8 @@ interface Props {
 }
 
 export const Controls = ({ isAuth, avatarSrc }: Props) => {
+  const isSmallScreen = useMediaQuery('(max-width: 992px)');
+
   return (
     <div className={cls.controls}>
       {isAuth ? (
@@ -23,7 +26,7 @@ export const Controls = ({ isAuth, avatarSrc }: Props) => {
           {avatarSrc && (
             <>
               <UserAvatar src={avatarSrc} width={40} height={40} />
-              <Divider orientation={'vertical'} mx={'lg'} />
+              {isSmallScreen && <Divider orientation={'vertical'} mx={'lg'} />}
             </>
           )}
 
