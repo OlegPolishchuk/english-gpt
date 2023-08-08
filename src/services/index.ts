@@ -1,2 +1,4 @@
-export * from './gptService/gptService';
-export * from './userService/userService';
+export * from './gptService';
+export * from './userService';
+export * from './authService';
+export * from './fetchService'

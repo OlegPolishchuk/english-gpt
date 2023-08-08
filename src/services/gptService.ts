@@ -19,7 +19,6 @@ export const sendAudio = (file: FormData) => {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${TOKEN}`,
-      // 'Content-Type': 'multipart/form-data'
     },
     body: file,
   })

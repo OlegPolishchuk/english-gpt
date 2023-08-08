@@ -14,12 +14,12 @@
     "@mantine/core": "^6.0.16",
     "@mantine/hooks": "^6.0.16",
     "@mantine/next": "^6.0.16",
-    "@prisma/client": "^5.0.0",
     "clsx": "^1.2.1",
     "dayjs": "^1.11.9",
     "eslint-plugin-import": "^2.27.5",
     "next": "13.4.9",
     "next-auth": "^4.22.3",
+    "next-client-cookies": "^1.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-speech-recognition": "^3.10.0",
@@ -39,7 +39,6 @@
     "eslint-config-next": "13.4.9",
     "eslint-config-prettier": "^8.8.0",
     "prettier": "^3.0.0",
-    "prisma": "^5.0.0",
     "typescript": "5.1.6"
   }
 }

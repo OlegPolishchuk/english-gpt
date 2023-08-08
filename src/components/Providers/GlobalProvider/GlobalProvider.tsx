@@ -1,20 +1,18 @@
 import React from 'react';
 
-import { getServerSession } from 'next-auth';
+import {ClientAuthnProvider} from "../ClientAuthnProvider/ClientAuthnProvider";
+import {Mantine} from '../Mantine/Mantine';
 
-import { Mantine } from '../Mantine/Mantine';
-import { NextSessionProvider } from '../NextSession/NextSessionProvider';
-
-import { authConfig } from '@/configs';
-import { userService } from '@/services';
+import {User} from "@/models";
+import {me} from '@/services';
 
 export const GlobalProvider = async ({ children }: { children: React.ReactNode }) => {
-  const session = await getServerSession(authConfig);
-  const userData = await userService.getUserData(session?.user?.email || '');
+  /* Исправить, когда понадобится стор */
+  const user = await me() || {} as User;
 
   return (
-    <NextSessionProvider user={userData}>
+    <ClientAuthnProvider user={user}>
       <Mantine>{children}</Mantine>
-    </NextSessionProvider>
+    </ClientAuthnProvider>
   );
 };

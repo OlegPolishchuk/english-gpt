@@ -1,7 +1,7 @@
 import { AuthOptions } from 'next-auth';
 import GoogleProviders from 'next-auth/providers/google';
 
-import { Routes } from '@/shared/constants/routes';
+import { Routes } from '@/shared/constants/routes/routes';
 
 export const authConfig: AuthOptions = {
   providers: [

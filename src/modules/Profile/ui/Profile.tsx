@@ -1,18 +1,13 @@
 import React from 'react';
 
-import { getServerSession } from 'next-auth';
-
-import { Description } from './Components/Description';
+import {Description} from './Components/Description';
 import cls from './Profile.module.css';
 
-import { authConfig } from '@/configs';
-import { Statistic } from '@/modules/Profile/ui/Components/Statistic';
-import { userService } from '@/services';
+import {Statistic} from '@/modules/Profile/ui/Components/Statistic';
+import {userService} from '@/services';
 
 export const Profile = async () => {
-  const session = await getServerSession(authConfig);
-  const userData = await userService.getUserData(session?.user?.email || '');
-
+  const userData = await userService.getUserProfile();
   const userStatistic = userData.Activity[0];
 
   return (

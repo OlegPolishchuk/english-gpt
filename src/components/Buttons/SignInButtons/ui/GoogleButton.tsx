@@ -10,12 +10,12 @@ interface Props {
   callback: (provider: string) => void;
 }
 
-export const GoogleButton = ({ callback }: Props) => {
+export const GoogleButton = async ({ callback }: Props) => {
   const handleClick = () => {
-    callback('google');
+    // callback('google');
   };
   return (
-    <Button rightIcon={<GoogleIcon />} onClick={handleClick}>
+    <Button component={'a'} href={'http://localhost:4200/api/auth/google/login'}  rightIcon={<GoogleIcon />} onClick={handleClick}>
       Sign in with Google
     </Button>
   );

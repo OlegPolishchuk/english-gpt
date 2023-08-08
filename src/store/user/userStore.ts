@@ -1,13 +1,12 @@
-import { create } from 'zustand';
+import {create} from 'zustand';
 
-import { User, UserActivity } from '@/models';
-import { UserDataResponse } from '@/services';
-import { createSelectors } from '@/store/utils/createSelectors';
+import {User, UserActivity} from '@/models';
+import {createSelectors} from '@/store/utils/createSelectors';
 
 interface UserStore {
   user: User;
   statistics: UserActivity;
-  setUser: (user: UserDataResponse) => void;
+  setUser: (user: User) => void;
 }
 
 const useUserStoreBase = create<UserStore>()(set => ({
@@ -19,11 +18,8 @@ const useUserStoreBase = create<UserStore>()(set => ({
 
       console.log('userData in Zustand user store', userData);
       if (userData.id) {
-        const { Activity, ...user } = userData;
-        return {
-          user,
-          statistics: Activity[0],
-        };
+
+        return { user: userData };
       }
 
       return state;

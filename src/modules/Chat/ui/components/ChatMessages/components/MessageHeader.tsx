@@ -3,20 +3,18 @@
 import React from 'react';
 
 import clsx from 'clsx';
-import { useSession } from 'next-auth/react';
 
 import cls from '../ChatMessages.module.css';
 
-import { MessageAudioPlayer } from '@/components/MessageAudioPlayer';
+import {MessageAudioPlayer} from '@/components/MessageAudioPlayer';
+import {useUserStore} from "@/store/user/userStore";
 
 interface Props {
   isUser: boolean;
   message: string;
 }
 export const MessageHeader = ({ isUser, message }: Props) => {
-  const { data } = useSession();
-
-  const userName = data?.user?.name ?? 'User';
+  const userName = useUserStore.use.user().name;
 
   return (
     <div className={cls.header}>

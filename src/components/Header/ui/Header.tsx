@@ -1,24 +1,22 @@
 import React from 'react';
 
 import clsx from 'clsx';
-import { getServerSession } from 'next-auth';
 
-import { Controls } from './Components/Controls';
+import {Controls} from './Components/Controls';
 import cls from './Header.module.css';
 
-import { authConfig } from '@/configs';
-import { userService } from '@/services';
+import {me} from '@/services';
+
 
 interface Props {
   className?: string;
 }
 
 export const Header = async ({ className }: Props) => {
-  const session = await getServerSession(authConfig);
-  const userData = await userService.fetchUsersDataIfAuth();
+  const user = await me();
 
-  const isAuth = !!session?.user;
-  const userAvatar = userData.image;
+  const isAuth = !!user;
+  const userAvatar = user?.image;
 
   return (
     <header className={cls.header}>
