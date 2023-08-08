@@ -5,6 +5,7 @@ export const Endpoints = {
   activity: `${base_url}/activity`,
   auth: {
     base: `${base_url}/auth`,
+    google_login: `${base_url}/auth/google/login`,
     google_redirect: `${base_url}/auth/google/redirect`
   }
 }

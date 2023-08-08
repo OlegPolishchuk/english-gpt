@@ -4,6 +4,7 @@ import React from 'react';
 
 import { Button } from '@mantine/core';
 
+import {Endpoints} from "@/shared/constants";
 import { GoogleIcon } from '@/shared/ui';
 
 interface Props {
@@ -14,8 +15,9 @@ export const GoogleButton = async ({ callback }: Props) => {
   const handleClick = () => {
     // callback('google');
   };
+
   return (
-    <Button component={'a'} href={'http://localhost:4200/api/auth/google/login'}  rightIcon={<GoogleIcon />} onClick={handleClick}>
+    <Button component={'a'} href={Endpoints.auth.google_login}  rightIcon={<GoogleIcon />} onClick={handleClick}>
       Sign in with Google
     </Button>
   );
