@@ -9,6 +9,8 @@ import { Header } from '@/components/Header';
 import { MainContainer } from '@/components/MainConntainer';
 import { GlobalProvider } from '@/components/Providers';
 
+export const dynamic = 'force-dynamic';
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
