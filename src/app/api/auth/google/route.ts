@@ -27,7 +27,7 @@ export async function GET(req: NextRequest) {
     console.log('new URL => ', new URL(Routes.main, req.url))
     console.log('////////////////////////////////////////////')
 
-    return NextResponse.redirect(new URL(Routes.main, req.url));
+    return NextResponse.redirect(process.env.AUTH_REDIRECT_URL as string);
   }
 
   return NextResponse.redirect(new URL(Routes.signin, req.url));
