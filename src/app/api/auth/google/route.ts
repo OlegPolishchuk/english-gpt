@@ -6,13 +6,20 @@ import {Endpoints, JWT, Routes} from "@/shared/constants";
 export async function GET(req: NextRequest) {
   const code = req.nextUrl.search;
 
+  console.log('google_code => ', code)
+
   const res = await fetch(Endpoints.auth.google_redirect + `${code}`, {
     credentials: 'include'
   })
+  console.log('res from server =>', res)
 
   const cookiesFromRes = res.headers.get('set-cookie') as string;
 
   console.log('cookiesFromRes', cookiesFromRes)
+  if (!cookiesFromRes) {
+    return NextResponse.redirect(new URL(Routes.signin, req.url));
+  }
+
   const {accessToken, refreshToken} = getTokensFromString(cookiesFromRes)
 
   if (accessToken && refreshToken) {
