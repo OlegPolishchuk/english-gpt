@@ -21,6 +21,12 @@ export async function GET(req: NextRequest) {
   }
 
   if (res.status === 200) {
+    console.log('STATUS === 200')
+    console.log('req.url =>', req.url)
+    console.log('Routes.main =>', Routes.main)
+    console.log('new URL => ', new URL(Routes.main, req.url))
+    console.log('////////////////////////////////////////////')
+
     return NextResponse.redirect(new URL(Routes.main, req.url));
   }
 
