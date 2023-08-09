@@ -6,7 +6,8 @@ export const Endpoints = {
   auth: {
     base: `${base_url}/auth`,
     google_login: `${base_url}/auth/google/login`,
-    google_redirect: `${base_url}/auth/google/redirect`
+    google_redirect: `${base_url}/auth/google/redirect`,
+    refreshToken: `${base_url}/auth/refreshTokens`
   }
 }
 

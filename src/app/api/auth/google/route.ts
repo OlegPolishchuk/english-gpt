@@ -11,11 +11,11 @@ export async function GET(req: NextRequest) {
   const res = await fetch(Endpoints.auth.google_redirect + `${code}`, {
     credentials: 'include'
   })
-  console.log('res from server =>', res)
+
 
   const cookiesFromRes = res.headers.get('set-cookie') as string;
 
-  console.log('cookiesFromRes', cookiesFromRes)
+  // console.log('cookiesFromRes', cookiesFromRes)
   if (!cookiesFromRes) {
     return NextResponse.redirect(new URL(Routes.signin, req.url));
   }
@@ -28,11 +28,11 @@ export async function GET(req: NextRequest) {
   }
 
   if (res.status === 200) {
-    console.log('STATUS === 200')
-    console.log('req.url =>', req.url)
-    console.log('Routes.main =>', Routes.main)
-    console.log('new URL => ', new URL(Routes.main, req.url))
-    console.log('////////////////////////////////////////////')
+    // console.log('STATUS === 200')
+    // console.log('req.url =>', req.url)
+    // console.log('Routes.main =>', Routes.main)
+    // console.log('new URL => ', new URL(Routes.main, req.url))
+    // console.log('////////////////////////////////////////////')
 
     return NextResponse.redirect(process.env.AUTH_REDIRECT_URL as string);
   }

@@ -21,3 +21,12 @@ export const me = async (): Promise<Nullable<User>> => {
  }
 }
 
+export const updateTokens = async (refreshToken: string) => {
+  return await fetch(Endpoints.auth.refreshToken , {
+    credentials: 'include',
+    headers: {
+      Cookie: `refreshToken=${refreshToken}`
+    }
+  })
+}
+
